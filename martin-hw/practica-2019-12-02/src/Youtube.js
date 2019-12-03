@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import LogIn from './LogIn';
 
 class Youtube extends React.Component{
     render(){

@@ -1,15 +1,15 @@
 import React from 'react';
 import FirstBlock from './FirstBlock';
 import Youtube from './Youtube';
-import NavBar from './NavBar';
+import LogIn from './LogIn';
 
 class App extends React.Component{
   render(){
     return(
       <div>
-        <NavBar />
         <FirstBlock />
         <Youtube />
+        <LogIn />
       </div>
       
     )

@@ -120,3 +120,17 @@ a{
     
 }
 
+/***************************************************************/
+
+form{
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin-top: 70px;
+}
+.send{
+    margin-top:20px;
+}
