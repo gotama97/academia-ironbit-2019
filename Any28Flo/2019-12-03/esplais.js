@@ -1,18 +1,18 @@
 //function declaration
-Array.prototype.esplais = function( index, deleteCount , ...itemsToAdd){
+Array.prototype.esplais = function( index , ...itemsToAdd){
  let indexi = index;
  console.log(indexi)
  let arrayFilter= []
- for (let i = 0 ; i <= this.length ; i++){
+ for (let i = 0 ; i <= indexi ; i++){
      if(i != indexi){
          arrayFilter.push(this[i])
      }
  }
- console.log(arrayFilter)
+ console.log(`${arrayFilter} , ${itemsToAdd}`)
   //return newArray;
 };
 
 let numberArray = [ 1 ,2,3,4,5,6];
-
-console.log(numberArray.esplais(2));
+let array = [2,3,1]
+console.log(numberArray.esplais(2, array));
 
