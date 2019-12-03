@@ -1,13 +1,12 @@
 let minUmbrella = function (array){
     let umbrellaInHome = 0;
     let umbrellaInWork = 0;
-    let totalUmbrellas;
+   
     let numberOfUmbrellas = array.map((element, index) =>{
+        let totalUmbrellas;
          if(index%2 === 0 && element === "rainy"){
 
-             if(totalUmbrellas > 2){
-                return totalUmbrellas/2
-             }
+             totalUmbrellas+=1;
             //  if(umbrellaInHome >= 1){
             //      umbrellaInWork+=1;
             //  }else if(umbrellaInHome == 0){
