@@ -1,4 +1,4 @@
-const minUmbrellas= (weather) => {
+const minUmbrellas = (weather) => {
     let home = 0;
     let work = 0;
     let shouldUseUmbrella = false;
@@ -6,7 +6,7 @@ const minUmbrellas= (weather) => {
      return weather.reduce( (acc, currentValue, index) => {
       
       if(currentValue === "rainy" || currentValue === "thunderstorms"){
-        shouldUseUmbrella = true
+        shouldUseUmbrella = true;
       }
       
       if(index % 2 === 0 && shouldUseUmbrella){
@@ -16,11 +16,11 @@ const minUmbrellas= (weather) => {
       } else if(shouldUseUmbrella) {
         if(home > 0) {
         home -= 1;
-        work += 1;} else home += 1
+        work += 1;} else home += 1;
       }
-      
-      acc = home + work;
-      return acc
+
+      shouldUseUmbrella = false;
+      return home + work;
       }, 0)
 
   }
