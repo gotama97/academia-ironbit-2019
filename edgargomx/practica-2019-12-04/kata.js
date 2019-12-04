@@ -1,17 +1,20 @@
 function removeNb (n) {
-    const arrayNumber = Array.from({length: n}, () => ++x);
+    let x = 0;
+    const arrayNumbers = Array.from({length: n}, () => ++x);
     
     const sum = (n * (n +1))/2;
-      let result = [];
-      for(let b = n; b > 0; b --){
-          const a = (sum - b)/(b + 1);
+    let result = [];
+     
+    arrayNumbers.reduce((acc) => {
+        const a = (sum - acc)/(acc + 1);
           if(a < n && Number.isInteger(a)){
-              result = [...result, [a, b]];
+              result = [...result, [a, acc]];
           }
-      }    return result;
-    
+        return --acc;
+    }, n);
+    return result;
   }
 
   //removNb(26) should return [(15, 21), (21, 15)]
 
-  removeNb(26)
+  removeNb(26);
