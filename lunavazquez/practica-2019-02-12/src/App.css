@@ -1,0 +1,69 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.fright {
+  float: right;
+}
+
+.iconPlus {
+  font-size: 200px;
+  color: gray;
+}
+
+.customModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.userForm {
+  width: 600px;
+  height: 400px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.home {
+  background-image: url('https://occ-0-659-987.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABYbLYRs1oDNdNQBqb4DBTHTBqQSk2pQSGgi6ASMi0QLPLn4-CUHpbiJjwWqWeUYftJuOmKDGfKQhUK3vK9YYWtCF2Ttd.webp?r=5dc');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
