@@ -11,9 +11,9 @@ const getAllPermutations = (string) => {
     let innerPermutations = getAllPermutations(charsLeft);
     innerPermutations.reduce((j) => {
       results = [...results,(firstChar + innerPermutations[j]) ];
-      return j++;
+      return ++j;
     },0);
-    return i++;
+    return ++i;
   },0);
 
   return results;
@@ -25,7 +25,6 @@ const isPalindrome = (input) => {
   let splitInput = input.split('');
   let reverseArray = splitInput.reverse();
   let joinArray = reverseArray.join('')
-  //console.log(joinArray, input)
   if(input === joinArray){
     return true;
   } else {
@@ -39,4 +38,4 @@ const permuteAPalindrome = (input) => {
   return (array.length > 0) ? array.some(permutacion => isPalindrome(permutacion)) : true; 
 }
 
-//console.log (permuteAPalindrome('baa'))
+console.log (permuteAPalindrome('baa'))
