@@ -17,14 +17,20 @@ function minUmbrellas(weather) {
                     totalCasa+=1;
                     return accumulator + 1;
                 }
+                else {
+                    return accumulator;
+                }
             }
             }
             else {
                 if (totalOficina === 0) {
                     totalOficina+=1;
                     return accumulator + 1;
+                }
+                else {
+                    return accumulator;
+                }
             }
-        }
             return accumulator
     }, 0);
 }
