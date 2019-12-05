@@ -13,7 +13,7 @@ function minUmbrellas(weather) {
     }
   });
   
-  for (let i = 0; i < daysWeatherBoolean.length; i++){
+  for (let i in daysWeatherBoolean){
     if (daysWeatherBoolean[i] === 1  && home === true){
       if(umbrellasHome === 0){
         totalUmbrellas +=1;
