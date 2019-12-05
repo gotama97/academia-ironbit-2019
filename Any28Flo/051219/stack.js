@@ -1,4 +1,3 @@
-// let stack=[]
 
 class Stack{
     constructor(){
@@ -9,7 +8,6 @@ class Stack{
     push(element){
         this.stack[this.stackTop] = element;
         this.stackTop++;
-        console.log(this.stack.length)
 
     }
    
@@ -17,24 +15,22 @@ class Stack{
         return this.stack.length <= 0   
     }
     pop(){
-        //console.log(this.stackEmpty());
-        if(this.stackEmpty()){
-            console.log(" No podemos sacar elementos")
+        this.stackTop--;
+         if(this.stackEmpty()){
+             console.log(" No podemos sacar elementos")
 
-        }else{
-            this.stack.splice( this.stackTop, 1)
+         }else{
+             this.stack.splice( this.stackTop, 1)
 
-        }
-       
+         }
+       //!this.stackEmpty() ? this.stack.splice(this.stackTop, 1)  : console.log("No podemos sacar elementos")
     }
 }
 
 let newStack = new Stack ( 1);
 
-newStack.push(1)
-newStack.push(2)
+newStack.push("Analin")
+newStack.push("Pablo")
 console.log(newStack)
 
-newStack.push()
- newStack.pop();
- newStack.pop();
+newStack.pop()
