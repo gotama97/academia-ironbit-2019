@@ -11,9 +11,7 @@ return await fetch(url)
 }
 
 
-const printMovies = async function(){
-    console.log("Inside printMovie")
-    
+const printMovies = async function(){    
     let movieList = await getM();
     console.log(movieList)
     let movieContainer = document.querySelector("#movieContainer");

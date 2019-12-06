@@ -1,4 +1,7 @@
 /* profiles */
+html{
+    background-color: #222222;
+}
 .profiles {
     background-color: #222222;
     color : #ffff;
@@ -23,9 +26,6 @@
     border: 1px solid #fff;
 
 }
-#carouselMovie{
-    height: 50vh;
-}
 .card{
     margin-right: 2em;
     color: white;
@@ -38,4 +38,20 @@
     color: #222222;
     font-size: 2em;
 
+}
+.netflix{
+    background-color: #222222;
+}
+.carousel-item img{
+    height: 50em;
+}
+nav{
+    background-color: #222222;
+    color: #fff;
+}
+.nav-link{
+    color:white;
+}
+.logo{
+    width: 8em;
 }
