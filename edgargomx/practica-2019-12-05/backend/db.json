@@ -1,6 +1,6 @@
 {
     
-    "profile": { "name": "typicode" },
+    "profiles": [ { "name": "Edgar"}],
     "movies": [
       {
           "imagen": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elseworlds-crossover-arrow-flash-superman-1539952103.jpg",

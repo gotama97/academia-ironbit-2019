@@ -1,12 +1,11 @@
 let listPeliculas = [];
-const getMovies = async () => {
+const getMovies = () => {
     const urlApi = 'http://localhost:3000/movies';
-    listPeliculas = await fetch(urlApi)
-                                .then(response => response.json())
-                                .then(resulJson => resulJson)
-                                .catch(error => {
-                                    console.log(error)
-                                });
+    return fetch(urlApi)
+            .then(response => response.json())
+            .catch(error => {
+                console.log(error)
+            });
 }
 
 const loadNavbar = function () {
@@ -108,7 +107,6 @@ const showMovie = (movie) => {
 
 // CRUD FUNCTIONS
 const listPerfiles = [ {name: "Edgar"}];
-////localStorage.setItem('perfiles', JSON.stringify(listPerfiles));
 
 const deletePerfil = function(index_perfil) {
     listPerfiles.splice(index_perfil, 1);
@@ -169,12 +167,31 @@ loadNavbar();
 path = window.location.pathname.split("/")
 if (path[path.length - 1] === 'index.html'){
     (async () => {
-        await getMovies();
-        loadPreview();
-        loadCarrousel();
-    })()
+        try {
+            listPeliculas = await getMovies();
+            console.log("Peliculas", listPeliculas);
+            if(listPeliculas.length > 0 ) {
+                loadPreview();
+                loadCarrousel();
+            }
+        } catch (error) {
+            alert("No se pudo conectar al servidor")
+        } 
+        
+        
+        
+    })();
     
 }else {
-    loadPerfiles();
-
+    (async () => {
+        try {
+            listPeliculas = await getMovies();
+            
+        } catch (error) {
+            alert("No se pudo conectar al servidor")
+        } 
+        
+        
+        
+    })();
 }
