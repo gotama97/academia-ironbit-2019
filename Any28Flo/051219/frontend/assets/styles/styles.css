@@ -2,8 +2,7 @@
 .profiles {
     background-color: #222222;
     color : #ffff;
-    width : 100%;
-    height: 100vh;
+    height: 60em;
     padding-top: 25vh;
 }
 .profiles h2{
@@ -26,4 +25,17 @@
 }
 #carouselMovie{
     height: 50vh;
+}
+.card{
+    margin-right: 2em;
+    color: white;
+    text-align: center;
+}
+.card:hover{
+    border: 2px solid #EA4234;
+}
+.card-text{
+    color: #222222;
+    font-size: 2em;
+
 }
