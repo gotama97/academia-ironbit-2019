@@ -19,6 +19,11 @@
     padding: 1em 2em 1em 2em;
     font-size: 1.5em;
 }
+.btnProfile:hover{
+    color:#fff;
+    border: 1px solid #fff;
+
+}
 #carouselMovie{
     height: 50vh;
 }
