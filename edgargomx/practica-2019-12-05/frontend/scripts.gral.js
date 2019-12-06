@@ -1,56 +1,78 @@
 let listPeliculas = [];
+const urlApi = 'http://localhost:3000/'
 const getMovies = () => {
-    const urlApi = 'http://localhost:3000/movies';
-    return fetch(urlApi)
+    return fetch(`${urlApi}movies`)
+            .then(response => response.json())
+            .catch(error => {
+                console.log(error.response)
+            });
+}
+
+const getProfiles = () => {
+    return fetch(`${urlApi}profiles`)
             .then(response => response.json())
             .catch(error => {
                 console.log(error)
             });
 }
 
-const loadNavbar = function () {
+const loadNavbar = function (isHome = true) {
     const navbarElement = document.querySelector('#navbar');
-    navbarElement.innerHTML = `<nav class="navbar navbar-expand-lg fixed-top ">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <a class="navbar-brand" href="index.html" style="color: red;">LA NETFLIX</a>
+    let toHTML = `<div class="uk-position-relative" >
+                    <div class="uk-position-absolute uk-margin-top">
+                        <div id="preview"></div>
+                    </div>`;
+    toHTML += isHome ? `<img id="bg-img-movie" src="${ listPeliculas[0].imagen }" alt="">` : "";
+    toHTML += `<div class="uk-position-top">
+                    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <li class="uk-active"><a class="navbar-brand" href="index.html" style="color: red;">LA NETFLIX</a></li>
+                                <li>
+                                    <a class="nav-link" href="index.html" style="color: white">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                                    <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
-                                    </li>
-                                </ul>
-                                <form class="form-inline my-2 my-lg-0">
-                                    <a class="btn btn-danger my-2 my-sm-0" type="submit" href="perfil.html">Perfil</a>
-                                </form>
-                                </div>
-                                </nav>`;
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav">
+                                <li>
+                                    <a href="#">Opciones</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li class="uk-active"><a href="perfil.html">Ver Perfiles</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>`;
+
+navbarElement.innerHTML = toHTML;
 }
 
 const loadPreview = function (pelicula_index = 0) {
     console.log("preview")
     const pelicula = listPeliculas[pelicula_index];
     const element = document.querySelector('#preview');
-    element.innerHTML = `<div style="color: whitesmoke;">
-                                    <div class="content-center-vh mt-5">
-                                    <blockquote class="blockquote text-center" style="width: 600px;">
-                                        <h1  style="font-weight: bold;">${ pelicula.title }</h1>
-                                        <p style="font-size: 14px">${ pelicula.description }</p>
-                                        <p style="font-size: 13px">${ pelicula.reseña }</p>
-                                        <div class="content-center-vh">
-                                            <div style="width: 300px">
-                                                <div class="col-12 mt-5">
-                                                    <button type="button" class="btn btn-danger btn-block" onclick="showMovie('${ pelicula.trailer }')">VER AHORA</button>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </blockquote>  
-                                    <iframe width="80%" height="400" src="https://www.youtube.com/embed/${ pelicula.trailer }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>      
-                                </div>`;
+    const bgImg = document.querySelector('#bg-img-movie');
+    bgImg.src = pelicula.imagen;
+    element.innerHTML = `
+    <div class="uk-flex uk-flex-middle">
+        <div class="uk-container-expand	">
+                <h1  style="font-weight: bold; color=white">${ pelicula.title }</h1>
+                <p style="font-size: 14px">${ pelicula.description }</p>
+                <p style="font-size: 13px">${ pelicula.reseña }</p>
+               
+                <button class="uk-button uk-button-danger" onclick="showMovie('${ pelicula.trailer }')">VER AHORA</button>
+        </div>
+        <div class=" uk-margin-left">
+            <iframe width="100%" height="350" src="https://www.youtube.com/embed/${ pelicula.trailer }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+    </div>`;
 }
 
 const loadCarrousel = function() {
@@ -82,18 +104,16 @@ const loadPerfiles = function() {
     const element = document.querySelector('#perfiles');
    //// const listPer = JSON.parse(localStorage.getItem('perfiles'));
     let perfilesHTML = `<h3>PERFILES</h3>
-                            <div class="row" style="margin-top: 150px;">
-                                <div style="display: flex; flex-direction: row;">`;
+    <div class="uk-flex uk-flex-center">`;
     listPerfiles.forEach((perfil, index) => {
-        perfilesHTML += `<div class="col-4 mt-5 mr-1" style="background-color: red; width: 150px; height: 100px;">
+        perfilesHTML += `<div class="uk-card uk-card-default uk-card-body uk-margin-left" style="background-color: red;">
                             <h5 style="color: whitesmoke">${ perfil.name }</h5> 
                             <a id="update" style="cursor: pointer;" onclick="showUpdatePerfil(${ index })"><i class="fa fa-edit" ></i></a>
                             <a id="remove" style="cursor: pointer;" onclick="deletePerfil(${ index })"><i class="fa fa-remove"></i></a>
                         </div>`;
     });
-    perfilesHTML += `<div class="col-4 mt-5">
-                               <a id="add" style="cursor: pointer;" onclick="showFormPerfil('Agregar')"><i class="fa fa-plus-square fa-3x"></i></a>
-                            </div>
+    perfilesHTML += `<div class="uk-card uk-card-default uk-card-body uk-margin-left" style="background-color: red;">
+                            <a id="add" style="cursor: pointer;" onclick="showFormPerfil('Agregar')"><i class="fa fa-plus-square fa-3x"></i></a>
                         </div>
                     </div>`;
     element.innerHTML = perfilesHTML; 
@@ -106,7 +126,7 @@ const showMovie = (movie) => {
 }
 
 // CRUD FUNCTIONS
-const listPerfiles = [ {name: "Edgar"}];
+let listPerfiles = [];
 
 const deletePerfil = function(index_perfil) {
     listPerfiles.splice(index_perfil, 1);
@@ -121,10 +141,10 @@ const showUpdatePerfil = function(index_perfil) {
                             <form>
                             <div class="form-group">
                             <label for="inputNameUser">Nombre Usuario</label>
-                                <input type="text" class="form-control" id="inputNameUser">
+                                <input type="text" class="uk-input" id="inputNameUser">
                             </div>
                             </form>
-                            <button class="btn btn-primary" onclick="updatePerfil(${ index_perfil })">Guardar</button>
+                            <button class="uk-button uk-button-primary" onclick="updatePerfil(${ index_perfil })">Guardar</button>
                         `;
     const input = document.querySelector('#inputNameUser');
     input.value = listPerfiles[index_perfil].name;
@@ -147,23 +167,32 @@ const showFormPerfil = function(action_text, index) {
                          <form>
                             <div class="form-group">
                             <label for="inputNameUser">Nombre Usuario</label>
-                                <input type="text" class="form-control" id="inputNameUser">
+                                <input type="text" class="uk-input" id="inputNameUser">
                             </div>
-                            <button class="btn btn-primary" onclick="addPerfil()">Guardar</button>
-                         </form>`;
+                            
+                         </form>
+                         <button class="uk-button uk-button-primary" onclick="addPerfil()">Guardar</button>`;
 }
 
-const addPerfil = function() {
+const addPerfil = async () => {
     const input = document.querySelector('#inputNameUser');
-    const nuevoPerfil = { name: input.value }
-    listPerfiles.push(nuevoPerfil);
-    //localStorage.getItem('perfiles', JSON.stringify(listPerfiles))
-    loadPerfiles();
+    const content = await fetch(`${urlApi}profiles`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: (listPerfiles.length + 1), name: input.value })
+        }).then(rawResponse => rawResponse.json()).catch(error => console.log(error));
+        console.log("content", content);
+        // listPerfiles = await getProfiles();
+        console.log(listPerfiles)
+        await listPerfiles.push(content);
+        await loadPerfiles();
 }
-
 
 //cargar scripts
-loadNavbar();
+
 path = window.location.pathname.split("/")
 if (path[path.length - 1] === 'index.html'){
     (async () => {
@@ -171,27 +200,24 @@ if (path[path.length - 1] === 'index.html'){
             listPeliculas = await getMovies();
             console.log("Peliculas", listPeliculas);
             if(listPeliculas.length > 0 ) {
+                loadNavbar();
                 loadPreview();
                 loadCarrousel();
             }
         } catch (error) {
             alert("No se pudo conectar al servidor")
-        } 
-        
-        
-        
+        }   
     })();
     
 }else {
     (async () => {
         try {
-            listPeliculas = await getMovies();
-            
+            listPerfiles = await getProfiles();
+            console.log(listPerfiles)
+            loadNavbar(false);
+            loadPerfiles();
         } catch (error) {
             alert("No se pudo conectar al servidor")
         } 
-        
-        
-        
     })();
 }
