@@ -1,15 +1,14 @@
 {
   "users": [
     {
+      "id": "_cybk6fsck",
       "user": "oscar",
-      "password": "holi"
+      "password": "12345"
     },
     {
-      "id": 1
-    },
-    {
-      "id": 10,
-      "password": "adsasd"
+      "id": "_x4ljdh8b0",
+      "user": "juan",
+      "password": "84637"
     }
   ]
 }
