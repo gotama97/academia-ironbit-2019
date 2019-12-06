@@ -55,51 +55,190 @@ class Cola {
 
 class List {
     constructor(){
-        this.stock = [];
+        this.stock = null;
     }
 
-    pushLast = (item) => {
-        if (this.getSize() > 0 ) {
-            const next = this.getSize();
-            this.stock[ next - 1 ].nextValor = next;
+    newNode = (item) => {
+        return { valor: item, nextValor: null }
+    }
+
+    pushLast = (item, current = this.stock) => {
+
+        let newNode = this.newNode(item);
+        if(this.stock === null){
+            return this.stock = newNode;
         }
-        return this.stock = [ ...this.stock, { valor: item, nextValor: null }];
-    }
 
-    pushLast = (item) => {
-        if (this.getSize() > 0 ) {
-            const next = this.getSize();
-            this.stock[ next - 1 ].nextValor = next;
+        if(current.nextValor === null){
+            return current.nextValor = newNode;
         }
-        return this.stock = [ { valor: item, nextValor: null },...this.stock];
+
+      this.pushLast(item, current.nextValor);
     }
 
-    pop = () => {
-        return this.stock.splice(0, 1)
+    pushFirst = (item) => {
+        let newNode = this.newNode(item);
+
+        if(this.stock === null){
+            return this.stock = newNode;
+        }
+
+        newNode.nextValor = this.stock;
+        return this.stock = newNode;
     }
+
+    pop = (item, current = this.stock) => {
+
+        if (this.stock.valor === item){
+            return this.stock = this.stock.nextValor;
+        }
+
+        if(current.nextValor !== null){
+            if(current.nextValor.valor === item){
+                return current.nextValor = current.nextValor.nextValor;
+            }
+            this.pop(item, current.nextValor);
+        }
+        return false // no match found
+    }
+
 
     getItem = () => {
-        return this.stock[ this.getSize - 1 ]
+        return this.stock
     }
 
-    searchItem = () => {
+    searchItem = (item, current = this.stock) => {
+        if(this.stock === null) {
+            return false;
+        }
 
+        if (current !== null) {
+            if (current.valor === item){
+                return true;
+            } else {
+                return this.searchItem(item, current.nextValor);
+            }
+        }
+        return false;
     }
 
-    getSize = () => {
-        return this.stock.length;
+    getSize = (current = this.stock, acum = 1) => {
+        if (current === null) {
+            return 0;
+        }
+        
+        if (current.nextValor !== null){
+            return this.getSize(current.nextValor, acum = acum + 1)
+        }
+        return acum 
     }
 
-    showAllItems = () => {
-        return console.log(this.stock)
+    getAllItems = () => {
+        return this.stock
     }
+    
 }
 
+class ListDouble {
+    constructor(){
+        this.stock = null;
+    }
 
-lista = new List()
+    newNode = (item) => {
+        return { valor: item, nextValor: null, beforeValor: null }
+    }
+
+    pushLast = (item, current = this.stock) => {
+        let newNode = this.newNode(item);
+
+        if(this.stock === null){
+            return this.stock = newNode;
+        }
+
+        if(current.nextValor === null){
+            current.nextValor = newNode;
+            return newNode.beforeValor = current;
+        }
+
+        return this.pushLast(item, current.nextValor);
+    }
+
+    pushFirst = (item) => {
+
+        let newNode = this.newNode(item);
+        if(this.stock === null){
+            return this.stock = newNode;
+        }
+        
+        newNode.nextValor = this.stock;
+        this.stock.beforeValor = newNode;
+        return this.stock = newNode;
+    }
+
+    pop = (item, current = this.stock) => {
+
+       if (this.stock.valor === item){
+            console.log("stock", this.stock)
+            this.stock.nextValor.beforeValor = null;
+            return this.stock = this.stock.nextValor;
+        }
+
+        if(current.nextValor !== null){
+            if(current.nextValor.valor === item){
+               // current.beforeValor = current.nextValor.beforeValor.beforeValor;
+                current.nextValor = current.nextValor.nextValor;
+                return current.beforeValor = current.nextValor.beforeValor.beforeValor;
+            }
+            this.pop(item, current.nextValor);
+        }
+        return false // no match found
+    }
+
+
+    getItem = () => {
+        return this.stock
+    }
+
+    searchItem = (item, current = this.stock) => {
+        if(this.stock === null) {
+            return false;
+        }
+
+        if (current !== null) {
+            if (current.valor === item){
+                return true;
+            } else {
+                return this.searchItem(item, current.nextValor);
+            }
+        }
+        return false;
+    }
+
+    getSize = (current = this.stock, acum = 1) => {
+        if (current === null) {
+            return 0;
+        }
+        
+        if (current.nextValor !== null){
+            return this.getSize(current.nextValor, acum = acum + 1)
+        }
+        return acum 
+    }
+
+    getAllItems = () => {
+        return this.stock
+    }
+    
+}
+
+lista = new ListDouble()
 
 lista.pushLast(10)
 lista.pushLast(11)
 lista.pushLast(13)
 
-console.log(lista.showAllItems())
+lista.pop(11)
+len = lista.getSize();
+console.log(lista.searchItem(11))
+console.log(lista.getAllItems())
+console.log(len)
