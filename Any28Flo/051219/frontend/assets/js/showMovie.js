@@ -11,9 +11,7 @@ return await fetch(url)
 }
 
 
-const printMovies = async function(){
-    console.log("Inside printMovie")
-    
+const printMovies = async function(){    
     let movieList = await getM();
     console.log(movieList)
     let movieContainer = document.querySelector("#movieContainer");
@@ -31,26 +29,6 @@ const printMovies = async function(){
         </div>`
         movieContainer.appendChild(container ); 
     }
-
-    /*htmll = movieList.forIn( element =>{
-        container = document.createElement('div');
-      //  container.classList("carousel-item");
-        //container.classList(" mt-5")
-        container.innerHTML = `
-        <div class="carousel-item">
-        <img src="${element.poster}" class="d-block w-100" alt="">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>${element.title}</h5>
-            <p>${element.plot}</p>
-        </div>
-        </div>`
-
-        return container;
-      
-    })*/
-
-
-    
 
 };
 
