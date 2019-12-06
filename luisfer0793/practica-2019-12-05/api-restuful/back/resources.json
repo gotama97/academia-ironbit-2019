@@ -1,0 +1,29 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "Leon, The Professional",
+            "descritpion": "Mathilda es una niña que no se lleva bien con su familia, excepto con su hermano pequeño. Su padre es un narcotraficante que hace negocios con Stan, un corrupto agente de la D.E.A. Un día Stan mata a su familia y Mathilda se refugia en casa de Léon, un solitario y misterioso vecino que resulta ser un asesino a sueldo, pero hará un pacto con él: ella se encargará de las tareas domésticas y le enseñará a leer a Léon y éste le enseñará a disparar para poder vengarse de la muerte de su hermano.",
+            "imageURL": "http://cultura.hidalgo.gob.mx/wp-content/uploads/2017/11/naranjamecanicapl.jpg"
+        },
+        {
+            "id": 2,
+            "title": "The Shining",
+            "descritpion": "Jack Torrance se convierte en cuidador de invierno en el Hotel Overlook, en Colorado, con la esperanza de vencer su bloqueo con la escritura. Se instala allí junto con su esposa, Wendy, y su hijo, Danny, que está plagado de premoniciones psíquicas. Mientras la escritura de Jack no fluye y las visiones de Danny se vuelven más preocupantes, Jack descubre oscuros secretos del hotel y comienza a convertirse en un maníaco homicida, empeñado en aterrorizar a su familia.",
+            "imageURL": "https://i5.walmartimages.com/asr/d7fe04de-07e9-4e2e-ba1a-d8dc9966c86b_1.66548fd2c764e71101f0daf145209f39.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF"
+        },
+        {
+            "id": 3,
+            "title": "A Clockwork Orange",
+            "descritpion": "Un criminal en la Inglaterra del futuro pasa una serie de procesos experimentales para corregir sus impulsos violentos.",
+            "imageURL": "https://res.cloudinary.com/teepublic/image/private/s--w5FP5h5Q--/c_crop,x_10,y_10/c_fit,h_1109/c_crop,g_north_west,h_1260,w_1050,x_-66,y_-76/co_rgb:191919,e_colorize,u_Misc:One%20Pixel%20Gray/c_scale,g_north_west,h_1260,w_1050/fl_layer_apply,g_north_west,x_-66,y_-76/bo_140px_solid_white/e_overlay,fl_layer_apply,h_1260,l_Misc:Art%20Print%20Bumpmap,w_1050/e_shadow,x_6,y_6/c_limit,h_1134,w_1134/c_lpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1503463928/production/designs/1844807_1.jpg"
+        }
+    ],
+    "users": [
+        {
+            "username": "admin",
+            "email": "admin@admin.com",
+            "password": "admin"
+        }
+    ]
+}
