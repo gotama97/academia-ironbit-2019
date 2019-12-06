@@ -52,6 +52,9 @@ nav{
 .nav-link{
     color:white;
 }
+.nav-link:hover{
+    color:#fff;
+}
 .logo{
     width: 8em;
 }
