@@ -1,5 +1,7 @@
 let listPeliculas = [];
+let listPerfiles = [];
 const urlApi = 'http://localhost:3000/'
+
 const getMovies = () => {
     return fetch(`${urlApi}movies`)
             .then(response => response.json())
@@ -16,18 +18,33 @@ const getProfiles = () => {
             });
 }
 
-const loadNavbar = function (isHome = true) {
+const requestProfiles =  (typeMethod, dataProfile) => {
+    url = ( typeMethod.toUpperCase() === 'POST') ? `${urlApi}profiles` : `${urlApi}profiles/${ dataProfile.id }` 
+    return fetch(
+        url, 
+        {
+            method: typeMethod,
+            headers: {
+                        'Content-Type': 'application/json'
+                     },
+            body: JSON.stringify( dataProfile )
+        })
+        .then(response => response.json())
+        .catch(error => console.log(error));
+}
+
+const loadNavbar =  (isHome = true) => {
     const navbarElement = document.querySelector('#navbar');
     let toHTML = `<div class="uk-position-relative" >
                     <div class="uk-position-absolute uk-margin-top">
-                        <div id="preview"></div>
+                        <div id="preview" style="margin-top: 60px"></div>
                     </div>`;
-    toHTML += isHome ? `<img id="bg-img-movie" src="${ listPeliculas[0].imagen }" alt="">` : "";
+    toHTML += isHome ? `<img id="bg-img-movie" src="${ listPeliculas[0].imagen }" class="">` : "";
     toHTML += `<div class="uk-position-top">
                     <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
                         <div class="uk-navbar-left">
                             <ul class="uk-navbar-nav">
-                                <li class="uk-active"><a class="navbar-brand" href="index.html" style="color: red;">LA NETFLIX</a></li>
+                                <li class="uk-active"><a class="navbar-brand" href="index.html" style="color: red; font-size: 2em">LA NETFLIX</a></li>
                                 <li>
                                     <a class="nav-link" href="index.html" style="color: white">Inicio</a>
                                 </li>
@@ -37,7 +54,7 @@ const loadNavbar = function (isHome = true) {
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav">
                                 <li>
-                                    <a href="#">Opciones</a>
+                                    <a href="#" class="uk-button uk-button-danger" style="color: white">Opciones</a>
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav">
                                             <li class="uk-active"><a href="perfil.html">Ver Perfiles</a></li>
@@ -53,29 +70,30 @@ const loadNavbar = function (isHome = true) {
 navbarElement.innerHTML = toHTML;
 }
 
-const loadPreview = function (pelicula_index = 0) {
+const loadPreview =  (pelicula_index = 0) => {
     console.log("preview")
     const pelicula = listPeliculas[pelicula_index];
     const element = document.querySelector('#preview');
     const bgImg = document.querySelector('#bg-img-movie');
     bgImg.src = pelicula.imagen;
     element.innerHTML = `
-    <div class="uk-flex uk-flex-middle">
+    <div class="uk-flex uk-flex-middle" uk-grid>
         <div class="uk-container-expand	">
-                <h1  style="font-weight: bold; color=white">${ pelicula.title }</h1>
+                <h1  style="font-weight: bold; color:white">${ pelicula.title }</h1>
                 <p style="font-size: 14px">${ pelicula.description }</p>
                 <p style="font-size: 13px">${ pelicula.reseña }</p>
-               
-                <button class="uk-button uk-button-danger" onclick="showMovie('${ pelicula.trailer }')">VER AHORA</button>
+                <div class="uk-flex uk-flex-center">
+                <button class="uk-button uk-button-danger uk-margin-top" onclick="showMovie('${ pelicula.trailer }')">VER AHORA</button>
+                </div>     
         </div>
         <div class=" uk-margin-left">
-            <iframe width="100%" height="350" src="https://www.youtube.com/embed/${ pelicula.trailer }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="180%" height="300" src="https://www.youtube.com/embed/${ pelicula.trailer }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         
     </div>`;
 }
 
-const loadCarrousel = function() {
+const loadCarrousel = () => {
     console.log("load carrousel")
     const element = document.querySelector('#carrousel');
     moviesHTML = `<div class="contain">
@@ -100,20 +118,20 @@ const loadCarrousel = function() {
   element.innerHTML = moviesHTML;
 }
 
-const loadPerfiles = function() {
+const loadPerfiles = () => {
     const element = document.querySelector('#perfiles');
    //// const listPer = JSON.parse(localStorage.getItem('perfiles'));
-    let perfilesHTML = `<h3>PERFILES</h3>
+    let perfilesHTML = `<h3 style="font-weight: bold; color: grey;">PERFILES</h3>
     <div class="uk-flex uk-flex-center">`;
     listPerfiles.forEach((perfil, index) => {
         perfilesHTML += `<div class="uk-card uk-card-default uk-card-body uk-margin-left" style="background-color: red;">
                             <h5 style="color: whitesmoke">${ perfil.name }</h5> 
-                            <a id="update" style="cursor: pointer;" onclick="showUpdatePerfil(${ index })"><i class="fa fa-edit" ></i></a>
-                            <a id="remove" style="cursor: pointer;" onclick="deletePerfil(${ index })"><i class="fa fa-remove"></i></a>
+                            <a id="update" style="cursor: pointer;"  onclick="showUpdatePerfil(${ index })" uk-tooltip="Editar Perfil"><i class="fa fa-edit" ></i></a>
+                            <a id="remove" style="cursor: pointer;" onclick="deletePerfil(${ index })" uk-tooltip="Eliminar Perfil"><i class="fa fa-remove"></i></a>
                         </div>`;
     });
-    perfilesHTML += `<div class="uk-card uk-card-default uk-card-body uk-margin-left" style="background-color: red;">
-                            <a id="add" style="cursor: pointer;" onclick="showFormPerfil('Agregar')"><i class="fa fa-plus-square fa-3x"></i></a>
+    perfilesHTML += `<div class="uk-card  uk-card-body uk-margin-left" style="background-color: transparent;">
+                            <a id="add" style="cursor: pointer;" onclick="showFormPerfil('Agregar')" uk-tooltip="Agregar Perfil"><i class="fa fa-plus-square fa-3x"></i></a>
                         </div>
                     </div>`;
     element.innerHTML = perfilesHTML; 
@@ -121,20 +139,23 @@ const loadPerfiles = function() {
 //Movie show
 const showMovie = (movie) => {
     console.log("movie:", movie)
-    document.querySelector('#preview').innerHTML = `<iframe width="100%" height="700" src="https://www.youtube.com/embed/${ movie }" frameborder="0" allow="accelerometer; autoplay=true; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    document.querySelector('#preview').innerHTML = `<iframe width="1150em" height="600" src="https://www.youtube.com/embed/${ movie }" frameborder="0" allow="accelerometer; autoplay=true; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     document.querySelector('#carrousel').innerHTML = '';
 }
 
-// CRUD FUNCTIONS
-let listPerfiles = [];
-
-const deletePerfil = function(index_perfil) {
-    listPerfiles.splice(index_perfil, 1);
-
-    loadPerfiles();
+const deletePerfil = async (index_perfil) => {
+    try {
+        await requestProfiles('delete', listPerfiles[index_perfil])
+        listPerfiles.splice(index_perfil, 1);
+    }catch(error) {
+        console.log("error", error)
+        alert("hubo un error al eliminar")
+    }finally {
+        loadPerfiles();
+    } 
 }
 
-const showUpdatePerfil = function(index_perfil) {
+const showUpdatePerfil = (index_perfil) => {
     //showFormPerfil("Actualizar", index_perfil);
     element = document.querySelector('#perfiles');
     element.innerHTML = `<h3>ACTUALIZAR PERFIL</h3>
@@ -144,24 +165,26 @@ const showUpdatePerfil = function(index_perfil) {
                                 <input type="text" class="uk-input" id="inputNameUser">
                             </div>
                             </form>
-                            <button class="uk-button uk-button-primary" onclick="updatePerfil(${ index_perfil })">Guardar</button>
+                            <button class="uk-button uk-button-primary uk-margin-top" onclick="updatePerfil(${ index_perfil })">Guardar</button>
                         `;
     const input = document.querySelector('#inputNameUser');
     input.value = listPerfiles[index_perfil].name;
 }
 
-const updatePerfil = function(index_perfil) {
+const updatePerfil = async (index_perfil) => {
 
     const input = document.querySelector('#inputNameUser');
-    console.log(index_perfil)
-    listPerfiles[index_perfil].name = input.value
-    
-    //localStorage.setItem('perfiles', JSON.stringify(listPerfiles))
-    ////const listPer = JSON.parse(localStorage.getItem('perfiles'));
-    loadPerfiles();
+    try {
+        listPerfiles[index_perfil].name = await input.value
+        await requestProfiles('put', listPerfiles[index_perfil])
+    } catch(error) {
+        alert("hubo un problema");
+    } finally {
+        loadPerfiles();
+    }
 }
 
-const showFormPerfil = function(action_text, index) {
+const showFormPerfil = (action_text, index) => {
     element = document.querySelector('#perfiles');
     element.innerHTML = `<h3>${ action_text.toUpperCase() } PERFIL</h3>
                          <form>
@@ -171,24 +194,28 @@ const showFormPerfil = function(action_text, index) {
                             </div>
                             
                          </form>
-                         <button class="uk-button uk-button-primary" onclick="addPerfil()">Guardar</button>`;
+                         <button class="uk-button uk-button-primary uk-margin-top" onclick="addPerfil()">Guardar</button>`;
 }
 
 const addPerfil = async () => {
     const input = document.querySelector('#inputNameUser');
-    const content = await fetch(`${urlApi}profiles`, {
+    try {
+        const result = await requestProfiles('post',{ id: (listPerfiles.length + 1), name: input.value })
+        await listPerfiles.push(result);
+    } catch (error) {
+        alert("hubo un problema")
+    } finally {
+        loadPerfiles();
+    }
+    /*const content = await fetch(`${urlApi}profiles`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({ id: (listPerfiles.length + 1), name: input.value })
-        }).then(rawResponse => rawResponse.json()).catch(error => console.log(error));
-        console.log("content", content);
-        // listPerfiles = await getProfiles();
-        console.log(listPerfiles)
-        await listPerfiles.push(content);
-        await loadPerfiles();
+        }).then(rawResponse => rawResponse.json()).catch(error => console.log(error));*/
+    
 }
 
 //cargar scripts
