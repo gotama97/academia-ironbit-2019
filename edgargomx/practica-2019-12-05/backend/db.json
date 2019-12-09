@@ -1,0 +1,41 @@
+{
+    
+    "profiles": [ { "name": "Edgar"}],
+    "movies": [
+      {
+          "imagen": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/elseworlds-crossover-arrow-flash-superman-1539952103.jpg",
+          "title": "Flash",
+          "trailer": "LOzaD3dHA9Q",
+          "description": "Mientras Rosso roba más sangre para su cura, flashbacks muestran cómo una vez se preocupó por su madre antes de que le diagnosticaran HLH y cómo se enojó con ella por aparentemente darse por vencida antes de que ella muriera. Mientras el Equipo Flash procesa lo que Barry e Iris les dijeron, Cisco se niega a aceptarlo y promete salvarlo. En respuesta, Barry decide entrenar a Cisco para convertirse en el nuevo líder del Equipo Flash después de que él se haya ido al trabajar con él para salvar a Rosso.",
+          "reseña": "Grant Gustin, Candice Patton, Danielle Panabaker, Carlos Valdés, Hartley Sawyer, Danielle Nicolet, LaMonica Garrett, Tom Cavanagh, Jesse L. Martin"
+      },{
+          "imagen": "https://i.ytimg.com/vi/ZRYJ1J5fcRk/maxresdefault.jpg",
+          "title": "Guardianes de la Bahia",
+          "trailer": "wXPiD2SbXWU",
+          "description": "es una película de comedia y acción estadounidense de 2017, basada en la serie con el mismo nombre, de 1989.",
+          "reseña": "Dwayne The Rock Johnson, Zac Efron, Alexandra Daddario y Kelly Rohrbach y con la participación antagónica de Priyanka Chopra"
+      },
+      {
+          "imagen": "https://i2.wp.com/frasesdelapelicula.com/wp-content/uploads/2016/07/batman-el-caballero-de-la-noche-asciende.jpeg",
+          "title": "Batman",
+          "trailer": "a8W6fgeObDA",
+          "description": "El 10 de junio de 2013, se anunció que el director Zack Snyder y el guionista David S. Goyer regresarían en una secuela de El hombre de acero. Goyer ya había firmado previamente un contrato de tres películas, las cuales incluían El Hombre de Acero, su secuela, y La Liga de la Justicia con Superman. También se espera que Christopher Nolan regrese como productor, o bien en un papel menos importante que en el que tuvo en la película. El 16 de junio de 2013, The Wall Street Journal informó que el estudio estaba planeando estrenar la secuela en 2014.",
+          "reseña": "Ben Afleck, Amy Adams, Joe Manganiello"
+      },
+      {
+          "imagen": "http://elhorror.com.mx/quehorror/wp-content/uploads/2017/04/anaconda-pelicula.jpg",
+          "title": "Anaconda",
+          "trailer": "zkX5t5ZJLEk",
+          "description": "En el transcurso del viaje rescatan a un cazador de serpientes, Paul Sarone, después de que su bote hiciera aguas. Al conocer el interés de los documentalistas, Sarone les informa de que él puede guiarlos al lugar en el que se oculta la tribu. Al poco tiempo, un miembro de la expedición, el profesor Steven Cale, es picado por una avispa venenosa y queda inconsciente. Sarone convence al resto de la tripulación de seguir el rumbo establecido para llegar hasta un centro hospitalario en el que Cale pueda recibir atención, pero se trata de un engaño. ",
+          "reseña": " Jon Voight, Jennifer Lopez, Ice Cube más "
+      },
+      {
+          "imagen": "https://e.radio-oxigeno.io/normal/2016/05/23/160616_148440.jpg",
+          "title": "Dia de la Independencia",
+          "trailer": "avZLUwL-Tws",
+          "description": "Siempre supimos que iban a regresar. Luego de que DÍA DE LA INDEPENDENCIA redefiniera el género de películas de eventos, en el próximo capítulo épico llega una catástrofe global de una escala inimaginable. Utilizando la tecnología alienígena recuperada, las naciones de la tierra han colaborado en un sistema de defensa inmensa para proteger al planeta. Pero nada nos puede preparar para la fuerza sin precedentes de los alienígenas. Solo el ingenio de algunos hombres y mujeres valientes pueden salvar al mundo del borde de la extinción.",
+          "reseña": "Liam Hemsworth, Jeff Goldblum, Bill Pullman, Judd Hirsch, Vivica A. Fox, Brent Spiner, Charlotte Gainsbourg, Jessie Usher, Maika, Monroe, Sela Ward."
+      }
+  ]
+    
+  }
