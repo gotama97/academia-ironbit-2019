@@ -1,0 +1,18 @@
+{
+  "name": "unit-test",
+  "version": "1.0.0",
+  "description": "Unit test for codewars execises",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --recursive -u tdd"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}
