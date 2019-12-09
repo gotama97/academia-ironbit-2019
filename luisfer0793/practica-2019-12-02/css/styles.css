@@ -1,0 +1,162 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    word-spacing: 0.1rem;
+    background-image: linear-gradient(to right bottom, rgba(31, 16, 18, 0.377), rgba(16, 24, 37, 0.719)), url('./../img/body-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.button {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1.5rem 2.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}
+
+.main {
+    position: relative;
+    height: 85vh;
+}
+
+
+.main__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #E50914;
+    transform: translate(-100%, 100%);
+}
+
+.main__logo {
+    margin: 3rem 5rem;
+    height: 7rem;
+}
+
+.main__video {
+    max-width: 100%;
+}
+
+.main__video-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+}
+
+.main__video-rate {
+    display: block;
+    margin-top: 1rem;
+    height: 3rem;
+    width: 15rem;
+}
+
+.main__video-description {
+    margin-top: 5rem;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.main__video-description--box {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__box {
+    display: grid;
+    padding: 3rem 5rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+/* --- Carousel --- */
+.carousel-title {
+    padding: 3rem 5rem;
+    text-transform: capitalize;
+    color: white;
+}
+
+/* --- Slides --- */
+.slide {
+    background-color: lightcoral;
+}
+
+.slide__img {
+    display: block;
+    width: 100%;
+}
+
+/* --- Login --- */
+.login {
+    height: 100vh;
+    background-color: #0b1015;
+}
+
+.login__title {
+    font-size: 4rem;
+    padding-top: 5rem;
+    text-align: center;
+    color: white;
+}
+
+.user-grid{
+    display: grid;
+    width: 80%;
+    margin: 5rem auto;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+}
+
+.user {
+    text-align: center;
+}
+
+.user__title {
+    padding-bottom: 3rem;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.user__image {
+    display: block;
+    width: 20rem;
+    cursor: pointer;
+}
+.button--login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #0b1015;
+}
