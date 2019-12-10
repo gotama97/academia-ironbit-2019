@@ -6,10 +6,11 @@ const assert  = require ('chai').assert;
 const xoFunction = require ("../src/index.js");
 
 suite('All cases' , () => {
-     test('Success case' , () =>{
-        assert.strictEqual(xoFunction("ooxx"),true)
-    }); 
+     
     test('Array.length greather than 0 ' , () =>{
         assert.strictEqual(xoFunction(""),"Empty strings are not allowed")
+    });
+    test('Same x and o ' , () =>{
+        assert.strictEqual(xoFunction("xxo"),"Must have same numbers x and o")
     });
 })

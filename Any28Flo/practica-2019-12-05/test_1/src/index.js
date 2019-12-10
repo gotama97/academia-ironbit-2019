@@ -7,8 +7,10 @@ const xoFunction  = (xoString) =>{
   if (isEmpty(xoString)){
       return "Empty strings are not allowed"
   }else{
-      sameAmount(xoString)
-  }   
+     if( !hasSameCharacters){
+         return "Must have same numbers x and o"
+    }
+  }
 }
 
 const  isEmpty = (str)=> {
@@ -17,7 +19,20 @@ const  isEmpty = (str)=> {
     else
         return true;
 }
-
+const spliceData = (str) =>{
+    return str.split("");
+}
+const filterData = (str, characterToSerch) =>{
+  return  str.filter( character =>{
+        return character === characterToSerch;
+    })
+}
+const isEqual = (strX, strO )=>{
+    return strX.length === strO.length;
+}
+const hasSameCharacters= (str) =>{
+   return isEqual( filterData( spliceData(str) , "x") , filterData( spliceData(str) , "o"))
+}
  const sameAmount = str =>{
     //code here
     let xs = "x";
