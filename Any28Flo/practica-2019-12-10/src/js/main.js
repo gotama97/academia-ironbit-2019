@@ -27,8 +27,23 @@ class contractTeacher extends Profesor{
 
     }
 }
-class fullProfesor extends Profesor{
-    constructor (){
-        this. 
+// class fullProfesor extends Profesor{
+//     constructor (){
+ 
+//     }
+// }
+
+const createAdmins = numAdmins =>{
+    let id= 0 ;
+    for(let i = 0 ; i <= numAdmins ; i++){
+        let newAdmin = new Employe(id);
+        arrayAdmins.push(newAdmin);
+        id++;
     }
+    return arrayAdmins;
 }
+let arrayAdmins = [];
+
+let numAdmins = 3;
+createAdmins(numAdmins)
+console.log(arrayAdmins);
