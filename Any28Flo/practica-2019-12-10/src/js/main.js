@@ -1,4 +1,4 @@
-class Employe{
+class Employee{
     constructor(id,tasks){
         this.id = id;
         this.name ="Fulanito";
@@ -10,17 +10,28 @@ class Employe{
     }
 
 }
-class Administrator extends Employe {
-    constructor(id){
-        super(id);
+class Administrator extends Employee {
+    constructor(id,tasks){
+        super(id,tasks);
         this.type = "Administrator";
     }
+    assingTasks(){
+       this.tasks = this.tasks.filter( task =>{
+           console.log(task)
+            return task.nameTask === "Junta" || task.nameTask == "Labores Administrativas";
+        })
+    }
 }
-class Profesor extends Employe{
+class Profesor extends Employee{
     constructor(id,tasks){
         super(id,tasks);
         this.type ="Profesor";
         this.acummHrs = 0;
+    }
+    assingTasks(){
+        this.tasks = this.tasks.filter(task =>{
+            return task.nameTask === "Clases" || tasks.nameTask == "Recesos" || tasks.nameTask == "Juntas"
+        })
     }
 }
 class fullTimeProfesor extends Profesor{
@@ -28,11 +39,15 @@ class fullTimeProfesor extends Profesor{
         super(id,tasks)
         this.type ="Full time profesor";
     }
-    assingTasks(tasks){
+    assingTasks(){
+        super.assingTasks();
+
+    }
+   /*  assingTasks(tasks){
         this.tasks = tasks.map( task =>{
             console.log( `My task are ${task}`)
         })
-    }
+    } */
 }
 class partTimeProfesor extends Profesor{
     constructor(id, tasks){
@@ -47,7 +62,6 @@ let tasks = [
     {"nameTask" : "Recesos" , "hrs" : 1},
 ];
 const createProfesors= (numAdmins, type) =>{
-    let id= 0 ;
     for(let i = 0 ; i < numAdmins ; i++){
         let newAdmin = new type (id, tasks);
         arrayAdmins.push(newAdmin);
@@ -55,10 +69,17 @@ const createProfesors= (numAdmins, type) =>{
     }
     return arrayAdmins;
 }
+//Global variables
+let id= 0 ;
 
 let arrayAdmins = [];
 
 createProfesors(2, fullTimeProfesor)
 createProfesors(3, partTimeProfesor)
 createProfesors(3, Administrator)
-console.log(arrayAdmins);
+//console.log(arrayAdmins);
+arrayAdmins.map(admin =>{
+    console.log(admin)
+})
+//arrayAdmins[6].assingTasks(tasks)
+arrayAdmins[0].assingTasks(tasks)
