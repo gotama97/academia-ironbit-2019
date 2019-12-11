@@ -47,7 +47,11 @@ class DoubleLinkedList {
         }
         
         this.list.delete(this.currentNode);
-        this.currentNode = this.currentNode.prev;
+        if(this.currentNode.prev !== null){
+            this.currentNode = this.currentNode.prev;
+        } else {
+            this.currentNode = this.currentNode.next
+        }
     }
 
 }
