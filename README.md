@@ -13,7 +13,7 @@
  - Adriana Vazquez [Link](https://github.com/lunavazquez)
  - Daniel Espinosa [Link](https://github.com/BrianEspinosaGarcia)
  - Martin Suarez [Link](https://github.com/Martin-HW)
- 
+
 ### Temario
 
 * JavaScript ES6
@@ -29,7 +29,7 @@
     - Promesas
     - Manejadores API (fetch)
     - Problemas
-    
+
 * POO
     - Bases y fundamentos
     - Abstraccion
@@ -37,7 +37,7 @@
     - Polimorfismo
     - Herencia
     - Relaciones, no entidades
-    
+
 * LitElement
     - Templates
     - CustomElements
@@ -57,4 +57,3 @@
 - 9/10 P.O.O.
 - 8/10 JS
 - 7/10 LitElement  
- 
