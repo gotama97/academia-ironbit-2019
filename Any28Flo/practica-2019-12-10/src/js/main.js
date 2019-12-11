@@ -34,16 +34,22 @@ class fullTimeProfesor extends Profesor{
         })
     }
 }
+class partTimeProfesor extends Profesor{
+    constructor(id, tasks){
+        super(id,tasks);
+        this.type = "Part time profesor";
+    }
+}
 let tasks = [
     {"nameTask" : "Junta" , "hrs" : 3},
     {"nameTask" : "Labores Administrativas" , "hrs" : 4},
     {"nameTask" : "Clases" , "hrs" : 1 },
     {"nameTask" : "Recesos" , "hrs" : 1},
 ];
-const createAdmins = numAdmins =>{
+const createProfesors= (numAdmins, type) =>{
     let id= 0 ;
-    for(let i = 0 ; i <= numAdmins ; i++){
-        let newAdmin = new fullTimeProfesor(id, tasks);
+    for(let i = 0 ; i < numAdmins ; i++){
+        let newAdmin = new type (id, tasks);
         arrayAdmins.push(newAdmin);
         id++;
     }
@@ -52,6 +58,7 @@ const createAdmins = numAdmins =>{
 
 let arrayAdmins = [];
 
-let numAdmins = 3;
-createAdmins(numAdmins)
+createProfesors(2, fullTimeProfesor)
+createProfesors(3, partTimeProfesor)
+createProfesors(3, Administrator)
 console.log(arrayAdmins);
