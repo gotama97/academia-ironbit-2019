@@ -46,8 +46,15 @@ class DoubleLinkedList {
             this.currentNode.next.prev = this.currentNode.prev;
         }
         
-        this.currentNode = this.currentNode.prev;
         this.list.delete(this.currentNode);
+        this.currentNode = this.currentNode.prev;
     }
 
 }
+
+const myList = new DoubleLinkedList();
+
+myList.add('dato 1');
+myList.add('dato 2', myList.currentNode);
+myList.next();
+myList.delete();
