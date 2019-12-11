@@ -21,13 +21,9 @@ class Employee {
 
 class Administrative extends Employee{
     constructor(id, name, hours){
-        super(id, name, hours);
+        super(id, name, 40);
     }
-    
 
-    assignHours(){
-
-    }
 }
 
 class Professor extends Employee{
