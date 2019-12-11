@@ -1,7 +1,7 @@
-import { Employee } from "./Emplyee,js";
+import { Employee } from "./Emplyee.js";
 
-export class Adminitrative extends Employee {
+export class Administrative extends Employee {
     constructor(){
-        super();
+        super()
     }
 }

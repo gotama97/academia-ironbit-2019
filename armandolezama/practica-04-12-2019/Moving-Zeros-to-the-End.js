@@ -12,9 +12,7 @@ const moveZeros = arr => {
             do{
                 arr.splice(arr.indexOf(0), 1)
             }while(arr.some(value => value === 0))
-            for(const index of positions){
-                arr = [...arr, 0]
-            }
+            arr = [...arr, filteredArr]
         }
         return arr;
     }
