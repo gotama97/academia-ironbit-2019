@@ -17,7 +17,7 @@ class Profesor extends Empleado{
     }
 }
 
-class ProfPlaza extends Empleado{
+class ProfPlaza extends Profesor{
     constructor(hrs,workHrs,resHrs,age){
         super(hrs,workHrs,resHrs);
         this.age = age;
@@ -31,7 +31,7 @@ class ProfPlaza extends Empleado{
     }
 }
 
-class ProfContrato extends Empleado{
+class ProfContrato extends Profesor{
     constructor(hrs,workHrs,resHrs){
         super(hrs,workHrs,resHrs);
         //CONTADOR DE HORAS DE TRABAJO
