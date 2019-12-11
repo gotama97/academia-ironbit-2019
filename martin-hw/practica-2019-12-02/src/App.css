@@ -1,0 +1,136 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.first {
+    background-image: url('./netflix-mosaique-series-tele-tv.jpg');
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size:cover;
+}
+
+.titleOne{
+    text-align: center;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0 0 8px;
+    font-size: 3.125rem;
+}
+
+.titleTwo{
+    text-align: center;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 16px 0 0;
+    font-weight: normal;
+    font-size: 27px;
+}
+
+.bOne{
+    border:1px solid white;
+    padding: 12px 50px 12px 20px;
+    margin: 50px 0 8px;
+    
+}
+
+.bTwo{
+    border:1px solid #e50914;
+    background-color: #e50914;
+    padding: 12px 50px 12px 20px;
+    margin: 0px 0 8px;
+    
+}
+
+.buttons{
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.625rem;
+    text-align: center;
+    white-space: nowrap;
+    
+
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+/****************************************************************************************************/
+
+
+.youtube{
+    display: flex;
+    background-color: black;
+    color: white;
+    height: 100vh;
+    text-align: center;
+}
+
+.leftPart{
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightPart{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.youTitleOne{
+    text-align: center;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0 0 8px;
+    font-size: 3.125rem;
+}
+
+.youTitleTwo{
+    text-align: justify;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 16px 0 0;
+    font-weight: normal;
+    font-size: 27px;
+    padding-left: 20px;
+}
+
+
+.youButton{
+    border:1px solid white;
+    padding: 12px 50px 12px 20px;
+    margin: 50px 0 8px;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1.625rem;
+    text-align: center;
+    white-space: nowrap;
+    
+}
+
+/***************************************************************/
+
+form{
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin-top: 70px;
+}
+.send{
+    margin-top:20px;
+}
