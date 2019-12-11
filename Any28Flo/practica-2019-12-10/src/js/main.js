@@ -4,6 +4,8 @@ class Employee{
         this.name ="Fulanito";
         this.rfc ="FOGE921128dfa";
         this.tasks = tasks;
+        this.hrsAccum = 0;
+        this.antique = 0 ; 
     }
     displayInfo(){
         console.log(` Employe number ${this.id}, name ${this.name}, rfc : ${this.rfc} `)
@@ -17,7 +19,6 @@ class Administrator extends Employee {
     }
     assingTasks(){
        this.tasks = this.tasks.filter( task =>{
-           console.log(task)
             return task.nameTask === "Junta" || task.nameTask == "Labores Administrativas";
         })
     }
@@ -73,6 +74,5 @@ createProfesors(2, fullTimeProfesor)
 createProfesors(3, partTimeProfesor)
 createProfesors(3, Administrator)
 arrayAdmins.map(admin =>{
-    console.log(admin)
     admin.assingTasks(tasks)
 })
