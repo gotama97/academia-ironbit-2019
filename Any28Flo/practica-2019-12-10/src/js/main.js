@@ -43,11 +43,6 @@ class fullTimeProfesor extends Profesor{
         super.assingTasks();
 
     }
-   /*  assingTasks(tasks){
-        this.tasks = tasks.map( task =>{
-            console.log( `My task are ${task}`)
-        })
-    } */
 }
 class partTimeProfesor extends Profesor{
     constructor(id, tasks){
@@ -77,9 +72,7 @@ let arrayAdmins = [];
 createProfesors(2, fullTimeProfesor)
 createProfesors(3, partTimeProfesor)
 createProfesors(3, Administrator)
-//console.log(arrayAdmins);
 arrayAdmins.map(admin =>{
     console.log(admin)
+    admin.assingTasks(tasks)
 })
-//arrayAdmins[6].assingTasks(tasks)
-arrayAdmins[0].assingTasks(tasks)
