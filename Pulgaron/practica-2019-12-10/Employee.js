@@ -17,10 +17,6 @@ class Employee {
         this._name = name;
         this._hours = hours;
     }
-
-    assignSubjects(){
-           
-    }
 }
 
 class Administrative extends Employee{
