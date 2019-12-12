@@ -7,8 +7,10 @@
 <body>
     
     <script type="module">
-        import SQLita from './SQLita.js'    
-        console.log(SQLita)
+        import SQLita from './SQLita.js' 
+        const mySQLita = SQLita 
+        mySQLita.teacherWithPlace.__schedule[0].occupyHour(1,"Math")
+        console.log(mySQLita.teacherWithPlace.__schedule[0])
     </script>
 </body>
 </html>
