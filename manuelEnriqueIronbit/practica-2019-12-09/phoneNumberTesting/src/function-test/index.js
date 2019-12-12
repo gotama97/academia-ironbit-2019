@@ -1,4 +1,4 @@
-function alphabetPosition(text) {
+const alphabetPosition = text => {
   let arrayCap = [];
   let arrayLow = [];
   //MAPEANDO EL ARREGLO DE MAYUSCULAS

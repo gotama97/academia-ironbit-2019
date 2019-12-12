@@ -1,4 +1,4 @@
-function minUmbrellas(weather) {
+const minUmbrellas = weather => {
     const daysWeatherBoolean = [];
     let totalUmbrellas = 0;
     let umbrellasHome = 0;
