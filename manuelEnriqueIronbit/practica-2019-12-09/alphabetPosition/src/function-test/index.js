@@ -1,4 +1,4 @@
-const alphabetPosition = text => {
+function alphabetPosition(text) {
   let arrayCap = [];
   let arrayLow = [];
   //MAPEANDO EL ARREGLO DE MAYUSCULAS
@@ -17,7 +17,6 @@ const alphabetPosition = text => {
   let phraseArray = Array.from(text);
   //IGNORANDO LOS ESPACIOS DEL ARREGLO 
   let ignoreSpaces = phraseArray.filter(c=>c!=' ');
-  console.log(ignoreSpaces);
   
   for (element of ignoreSpaces){
     if(typeof element !== 'string'){
@@ -37,9 +36,5 @@ const alphabetPosition = text => {
   test=res2;
   return test;
 }
-
-let test="42 is the answer.";
-
-alphabetPosition(test);
 
 module.exports = alphabetPosition;
