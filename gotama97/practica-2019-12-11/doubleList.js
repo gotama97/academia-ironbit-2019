@@ -44,5 +44,3 @@ class DoubleLinkedList {
         this.currentNode = this.currentNode.next !== null ? this.currentNode.next : this.currentNode;
     }
 }
-
-const list = new DoubleLinkedList({''});
