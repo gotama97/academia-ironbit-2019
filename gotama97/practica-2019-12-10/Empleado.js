@@ -16,9 +16,9 @@ class Teacher extends Employee{
     }
 
     schedule(){
-        this.schedule = new Array(9);
+        this.schedule = new Array(5);
         for (var i = 0; i < 6; i++) {
-            this.schedule[i] = new Array(2);
+            this.schedule[i] = new Array(9);
           }
     }
 
@@ -43,8 +43,8 @@ class TeacherP extends Teacher{
     bonus(age){
         let num_bonus = (age/5);
         if(age>=5){
-            this.workHrs = this.workHrs - (1*num_bonus);
-            this.resHrs = this.resHrs+(1*num_bonus);
+            this.workHrs = this.workHrs - num_bonus;
+            this.resHrs = this.resHrs+num_bonus;
         }
     }
 
@@ -67,7 +67,7 @@ class TeacherC extends Teacher{
 }
 
 class Admi extends Employee{
-    junta(){
+    meeting(){
         this.workHrs=-3;
     }
     laboresAdm(){
