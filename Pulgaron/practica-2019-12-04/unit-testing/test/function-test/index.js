@@ -3,9 +3,9 @@
 const assert = require('chai').assert;
 const moduleToTest = require('../../src/function-test');
 
-suite('All cases', () => {
-    test('Success case', () => {
-        assert.strictEqual(moduleToTest(7, 13), 20);
+suite('All cases', ()=>{
+    test('The function parameter is not an array', () =>{
+        assert.strictEqual(moduleToTest(3), 'Introduce a parameter of an array type');
     });
-    
-});
+})
+

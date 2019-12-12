@@ -34,20 +34,6 @@ const store = async () => {
     }
 };
 
-
-
-/* function myFunction() {
-    fetch('http://localhost:3000/users',{
-                  method: 'POST',
-                  body:  JSON.stringify({id: 10, password: 'adsasd'}),
-                  headers: {
-                      'Content-Type': 'application/json'        
-                  }
-              })
-              .then(response => response.json())
-              .then(data => console.log(data));
-  } */
-
   const checkNav = async () => {
 
     let values = {};
@@ -78,35 +64,16 @@ const store = async () => {
         alert('ERROR.');
     }
 };
-  //fetch = require("node-fetch"); 
 
-  
-//check();
-//fetch = require("node-fetch"); 
 const deleted = async() => {
 
     var userName =  document.getElementById('userName');  
     var userPw =   document.getElementById('userPw'); 
+    fetch(`http://localhost:3000/users/${userName.value}`,{
+    method: "DELETE"
+    })
+    .then (resp => resp.json())
+    .then(data =>{alert("eliminado con exito")}, );
 
-
-        /* try {
-
-            const response = await fetch('http://localhost:3000/users',{
-             method: 'DELETE',
-             headers: {'Content-Type': 'application/json'},
-             body: JSON.stringify({id: 1}),
-             });
-             const json = await response.json();
-             console.log( JSON.stringify(json) +'Cuenta eliminada con exito');
-         } catch (error) {
-             console.log('Error:', error); 
-         } */
-
-        fetch(`http://localhost:3000/users/${userName.value}`,{
-        method: "DELETE"
-        })
-        .then (resp => resp.json())
-        .then(data =>{alert("eliminado con exito")}, );
-    
 }
-//deleted();
+
