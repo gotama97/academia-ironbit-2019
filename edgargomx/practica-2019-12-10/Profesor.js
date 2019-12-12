@@ -3,17 +3,20 @@ const Empleado = require('./Empleado.js');
 module.exports = class Profesor extends Empleado{
     constructor(type) {
         super();
-        if(type.toLowerCase() === 'plaza'){
-            this.uid            = this.generateUID("PLAZA");
+        type = type.toUpperCase();
+        if(type === 'PLAZA'){
+            this.uid            = this.generateUID(type);
             this.name           = "Profesor Plaza",
+            this.type_teacher   = type
             this.hours          = 50,
             this.class_hours    = 35,
             this.free_time      = 15 
         }
 
-        if(type.toLowerCase() === 'contrato'){
-            this.uid            = this.generateUID("CONTRATO");
+        if(type === 'CONTRATO'){
+            this.uid            = this.generateUID(type);
             this.name           = "Profesor Contrato",
+            this.type_teacher   = type,
             this.hours          = 20,
             this.class_hours    = 15,
             this.free_time      = 5 

@@ -12,7 +12,7 @@ generateEmpleados = (type, numEmpleados) => {
 }
 
 generateRandom = (inicio, fin) => {
-    return Math.floor(Math.random() * ((fin + 1)- inicio) + inicio);
+    return Math.floor(Math.random() * ((fin)- inicio) + inicio);
 }
 
 const runInsertHorarios = (profesoresPlaza, profesoresContrato, administrativos) =>{
@@ -35,8 +35,8 @@ const runInsertHorarios = (profesoresPlaza, profesoresContrato, administrativos)
         }
     ];
 
-    let schedule = [];
-
+    let daySchedule = [];
+    let weekSchedule = [];
     let employmentArray = [
         ...generateEmpleados('plaza', profesoresPlaza),
         ...generateEmpleados('contrato', profesoresContrato),
@@ -45,16 +45,17 @@ const runInsertHorarios = (profesoresPlaza, profesoresContrato, administrativos)
 
     let hourInitial = 6
     const hoursArray = Array.from({length: 12}, () => hourInitial = hourInitial + 1)
+    const daysArray = Array.from({length: 5}, () => hourInitial = hourInitial + 1)
 
-    for (hour of hoursArray) {
-
-        let employRandom = generateRandom(1, employmentArray.length);
-        console.log(employRandom)
-        schedule = [...schedule, { hour: hour, employ: employmentArray[employRandom] }]
-        
+    for (day of daysArray) {
+        let daySchedule = [];
+        for (hour of hoursArray) {
+            let employRandom = generateRandom(1, employmentArray.length);
+            daySchedule = [...daySchedule, { hour: hour, employ: employmentArray[employRandom] }]
+            
+        }
+        weekSchedule = [...weekSchedule, daySchedule ]
     }
-
-    console.log("Empleados", schedule)
 
 }
 

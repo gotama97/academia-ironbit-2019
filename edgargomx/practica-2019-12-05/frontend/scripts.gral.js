@@ -6,7 +6,7 @@ const getMovies = () => {
     return fetch(`${urlApi}movies`)
             .then(response => response.json())
             .catch(error => {
-                console.log(error.response)
+                alert(error.response)
             });
 }
 
@@ -14,7 +14,7 @@ const getProfiles = () => {
     return fetch(`${urlApi}profiles`)
             .then(response => response.json())
             .catch(error => {
-                console.log(error)
+                alert(error.response)
             });
 }
 
@@ -30,7 +30,7 @@ const requestProfiles =  (typeMethod, dataProfile) => {
             body: JSON.stringify( dataProfile )
         })
         .then(response => response.json())
-        .catch(error => console.log(error));
+        .catch(error => alert(error.response));
 }
 
 const loadNavbar =  (isHome = true) => {
@@ -120,7 +120,6 @@ const loadCarrousel = () => {
 
 const loadPerfiles = () => {
     const element = document.querySelector('#perfiles');
-   //// const listPer = JSON.parse(localStorage.getItem('perfiles'));
     let perfilesHTML = `<h3 style="font-weight: bold; color: grey;">PERFILES</h3>
     <div class="uk-flex uk-flex-center">`;
     listPerfiles.forEach((perfil, index) => {
@@ -156,7 +155,6 @@ const deletePerfil = async (index_perfil) => {
 }
 
 const showUpdatePerfil = (index_perfil) => {
-    //showFormPerfil("Actualizar", index_perfil);
     element = document.querySelector('#perfiles');
     element.innerHTML = `<h3>ACTUALIZAR PERFIL</h3>
                             <form>
@@ -207,14 +205,6 @@ const addPerfil = async () => {
     } finally {
         loadPerfiles();
     }
-    /*const content = await fetch(`${urlApi}profiles`, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ id: (listPerfiles.length + 1), name: input.value })
-        }).then(rawResponse => rawResponse.json()).catch(error => console.log(error));*/
     
 }
 
