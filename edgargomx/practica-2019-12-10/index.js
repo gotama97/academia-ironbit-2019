@@ -47,9 +47,9 @@ const runInsertHorarios = (profesoresPlaza, profesoresContrato, administrativos)
     const hoursArray = Array.from({length: 12}, () => hourInitial = hourInitial + 1)
     const daysArray = Array.from({length: 5}, () => hourInitial = hourInitial + 1)
 
-    for (day of daysArray) {
+    for (const day of daysArray) {
         let daySchedule = [];
-        for (hour of hoursArray) {
+        for (const hour of hoursArray) {
             let employRandom = generateRandom(1, employmentArray.length);
             daySchedule = [...daySchedule, { hour: hour, employ: employmentArray[employRandom] }]
             

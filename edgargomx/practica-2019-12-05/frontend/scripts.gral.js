@@ -144,7 +144,7 @@ const deletePerfil = async (index_perfil) => {
         await requestProfiles('delete', listProfiles[index_perfil])
         listProfiles.splice(index_perfil, 1);
     }catch(error) {
-        alert("hubo un error al eliminar")
+        alert('hubo un error al eliminar')
     }finally {
         loadPerfiles();
     } 
@@ -172,7 +172,7 @@ const updatePerfil = async (index_perfil) => {
         listProfiles[index_perfil].name = await input.value
         await requestProfiles('put', listProfiles[index_perfil])
     } catch(error) {
-        alert("hubo un problema");
+        alert('hubo un problema');
     } finally {
         loadPerfiles();
     }
@@ -197,16 +197,14 @@ const addPerfil = async () => {
         const result = await requestProfiles('post',{ id: (listProfiles.length + 1), name: input.value })
         await listProfiles.push(result);
     } catch (error) {
-        alert("hubo un problema")
+        alert('hubo un problema')
     } finally {
         loadPerfiles();
     }
     
 }
 
-//cargar scripts
-
-path = window.location.pathname.split("/")
+path = window.location.pathname.split('/')
 if (path[path.length - 1] === 'index.html'){
     (async () => {
         try {
@@ -228,7 +226,7 @@ if (path[path.length - 1] === 'index.html'){
             loadNavbar(false);
             loadPerfiles();
         } catch (error) {
-            alert("No se pudo conectar al servidor")
+            alert('No se pudo conectar al servidor')
         } 
     })();
 }
