@@ -1,16 +1,19 @@
 'use strict';
 
 const assert = require('chai').assert;
-const alphabetPosition = require('../../src/function-test/index');
+const createPhoneNumber = require('../../src/function-test/index');
 
 suite('All cases', () => {
     test('Success case', () => {
-        assert.equal(alphabetPosition("The sunset sets at twelve o' clock."), "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11");
+        assert.equal(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
     });
     test('Success case', () => {
-        assert.equal(alphabetPosition("The narwhal bacons at midnight."), "20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
+        assert.equal(createPhoneNumber([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), "(111) 111-1111");
+    });
+    test('Success case', () => {
+        assert.equal(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
     });
     test('Fail case', () => {
-        assert.isString(alphabetPosition("42 is the answer."), "Only strings can be used");
+        assert.equal(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 'b']), "All elements need to be numbers");
     });
 });

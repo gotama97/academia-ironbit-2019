@@ -1,21 +1,16 @@
-function alphabetPosition(text) {
+const alphabetPosition = text => {
   let arrayCap = [];
   let arrayLow = [];
-  //MAPEANDO EL ARREGLO DE MAYUSCULAS
   for(let i = 0;i<26;i++){
       let letter = String.fromCharCode(i+65);
       arrayCap[i]=letter;
   }
-  //MAPEANDO EL ARREGLO DE MINUSCULAS
   for(let i = 0;i<26;i++){
       let letter = String.fromCharCode(i+97);
       arrayLow[i]=letter;
   }
 
-  //MAPEANDO EL ARREGLO DE MINUSCULAS
-  //DECONSTRUYENDO EL ARRAY EN CARACTERES
   let phraseArray = Array.from(text);
-  //IGNORANDO LOS ESPACIOS DEL ARREGLO 
   let ignoreSpaces = phraseArray.filter(c=>c!=' ');
   
   for (element of ignoreSpaces){
@@ -24,7 +19,6 @@ function alphabetPosition(text) {
     }
   }
 
-  //CAMBIANDO LETRAS A NUMEROS
   let res = ignoreSpaces.map((cur,idx)=>{
       for(let i=0;i<26;i++){
           if(cur===arrayLow[i]||cur===arrayCap[i]){
