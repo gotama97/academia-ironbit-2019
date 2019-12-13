@@ -45,7 +45,7 @@ const validSolution = (array) => {
           }
         }
     }
-
+//revisamos que ningun numero se repita en las grillas
     for(let idxrg in _grids){
         let addg ;
         let gridSet = new Set();

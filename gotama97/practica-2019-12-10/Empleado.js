@@ -5,8 +5,6 @@ class Emloyee{
     this.resHrs=resHrs;
     this.schedule;
     }
-    schedule(){
-    }
 }
 
 class Teacher extends Employee{
@@ -20,10 +18,6 @@ class Teacher extends Employee{
         for (var i = 0; i < 6; i++) {
             this.schedule[i] = new Array(9);
           }
-    }
-
-    bonus(){
-
     }
 
     rest(){
