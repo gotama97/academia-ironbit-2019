@@ -1,9 +1,13 @@
 const assert = require('chai').assert;
-const phoneNumber = require('../../src/phoneNumber/phoneNumber')
+const {fibonacci, passFrase} = require('../src/pass-frase.js');
 
-suite('Coonvert in phone number', () => {
-    test('Case numbers', () => {
-        assert.strictEqual(phoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]), "(123) 456-7890");
+suite('Pass frase', () => {
+    test('Fibonacci number generator', () => {
+        const myString = 'unafuncionvalidadora'
+        assert.deepEqual(fibonacci(myString.length), [0,1,1,2,3,5,8,13,21,34,55,89,144,233]);
     })
 
+    test('Pass frase test', () => {
+        assert.deepEqual(passFrase([0,1,1,2,3,5], [...'53r54l']), ['5','r','5','4','3','l']);
+    })
 });
