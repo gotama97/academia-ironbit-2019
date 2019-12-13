@@ -1,0 +1,19 @@
+{
+  "name": "practica-2019-12-04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha --recursive -u tdd"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

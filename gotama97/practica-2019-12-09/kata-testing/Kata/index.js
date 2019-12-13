@@ -1,4 +1,4 @@
-(array)=>{
+    (array)=>{
 
         if(array.length>0&& array.every(item=>typeof item === 'string')){
             let isCapital = false;
