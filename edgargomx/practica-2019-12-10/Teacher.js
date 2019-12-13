@@ -1,6 +1,6 @@
-const Empleado = require('./Empleado.js');
+const Employee = require('./Employee.js');
 
-module.exports = class Profesor extends Empleado{
+module.exports = class Teacher extends Employee{
     constructor(type) {
         super();
         type = type.toUpperCase();

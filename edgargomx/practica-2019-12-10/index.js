@@ -1,11 +1,11 @@
-Administrativo = require('./Administrativo.js')
-Profesor = require('./Profesor.js')
+const Administrativ = require('./Administrativ.js')
+const Teacher = require('./Teacher.js')
 
 generateEmpleados = (type, numEmpleados) => {
     if(type === 'admin'){
-        return returnArray = Array.from({length: numEmpleados}, () => new Administrativo()); 
+        return returnArray = Array.from({length: numEmpleados}, () => new Administrativ()); 
     } else if ((type === 'plaza') || type === 'contrato') {
-        return returnArray =  Array.from({length: numEmpleados}, () => new Profesor(type));
+        return returnArray =  Array.from({length: numEmpleados}, () => new Teacher(type));
     }else {
         return "error: no se puede generar";
     }

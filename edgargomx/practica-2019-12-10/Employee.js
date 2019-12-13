@@ -1,4 +1,4 @@
-module.exports = class Empleado {
+module.exports = class Employee {
     constructor(uid, name, hours, free_time) {
         this.uid = uid,
         this.name = name,
