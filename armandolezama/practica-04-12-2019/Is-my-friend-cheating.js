@@ -1,4 +1,4 @@
-function removeNb (n){
+const removeNb = (n) => {
     const sum = (n * (n +1))/2;
     const result = [];
     for(let b = n; b > 0; b --){
@@ -11,7 +11,7 @@ function removeNb (n){
     return result;
 }
 
-function findMissingLetter(array){
+const findMissingLetter = (array) => {
     let isCapital = false;
     let lowerCaseABC = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     array[0] === array[0].toUpperCase() ? isCapital = true: isCapital = false;

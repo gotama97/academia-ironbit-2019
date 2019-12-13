@@ -158,9 +158,13 @@ class Tail {
         }
     };
 
-    removeFromHead(){
-
-    }
+    removeFromTail(){
+        if(this.stack.length > 0){
+            this.stack = [...this.stack.slice(1, this.stack.length - 1)]
+        } else {
+            console.error('Current stack is empty')
+        }
+    };
 
     get(){
         if(this.stack.length > 0){

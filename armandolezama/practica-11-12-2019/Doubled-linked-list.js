@@ -55,10 +55,3 @@ class DoubleLinkedList {
     }
 
 }
-
-const myList = new DoubleLinkedList();
-
-myList.add('dato 1');
-myList.add('dato 2', myList.currentNode);
-myList.next();
-myList.delete();
