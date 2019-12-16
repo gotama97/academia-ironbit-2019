@@ -14,7 +14,7 @@ function minUmbrellas(weather) {
                            
     const use_umbrella = days.filter(day => day.with_umbrella)
     for (let day of use_umbrella) { 
-      if (day.direction === "casa") {
+      if (day.direction === 'casa') {
             totalA = (totalA > 0) ? (totalA - 1) : 0; 
             totalB = totalB + 1;
       }else {
