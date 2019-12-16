@@ -8,8 +8,11 @@ export class Teacher extends Employee {
         this.__assignedHours = 0;
     };
 
-    setClassHours(classHours){
+    setClassHours(classHours, day, subject, startHour){
         this.__classHours = classHours;
+        for(let i = startHour; i <= startHour + classHours; i++){
+            this.__schedule[day].occupyHour(i, subject)
+        }
     };
 
     setFreeHours(freeHours){

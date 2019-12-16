@@ -7,6 +7,6 @@ export class TeachersHired extends Teacher {
     }
 
     estimateBondsByHours(){
-        
+        this.__bondEachTenHours =  this.getAllOccupedHours() % 10
     }
 }
