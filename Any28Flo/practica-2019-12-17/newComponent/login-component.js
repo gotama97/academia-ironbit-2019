@@ -1,4 +1,4 @@
-import {LitElement, html} from 'lit-element';
+import {LitElement, html, css} from 'lit-element';
 
 import '@vaadin/vaadin-text-field/vaadin-text-field';
 import '@vaadin/vaadin-button/vaadin-button.js';
@@ -11,6 +11,20 @@ class LoginComponent extends LitElement{
             password : String
         }
     }
+
+    static get styles() {
+        return css`
+            .header iron-image{
+                display: flex;
+                width: %;
+                
+            }
+            .card-content {
+                padding: 10px;
+            }
+        `;
+    }
+
     constructor(){
         super();
         this.img  =""
@@ -21,7 +35,7 @@ class LoginComponent extends LitElement{
         return html`
         <paper-card image="${this.img}" >
             <div class="card-content">
-                <vaadin-text-field label="Username"  placeholder="Elena Torres"></vaadin-text-field>
+                <vaadin-text-field   placeholder="Elena Torres"></vaadin-text-field>
                 <br>
                 <vaadin-text-field placeholder="*****"></vaadin-text-field>
 
