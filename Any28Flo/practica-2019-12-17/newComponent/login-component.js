@@ -27,7 +27,7 @@ class LoginComponent extends LitElement{
 
             </div>
             <div class="card-actions">
-                <vaadin-button theme="secondary">Ingresar</vaadin-button>
+                <vaadin-button theme="primary">Ingresar</vaadin-button>
             </div>
         </paper-card>
         `
