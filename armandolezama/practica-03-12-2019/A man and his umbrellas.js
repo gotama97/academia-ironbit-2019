@@ -24,3 +24,4 @@ const minUmbrellas = (weather) => {
       }, 0)
 
   }
+  

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script type="module">
+        import SQLita from './SQLita.js' 
+        const mySQLita = SQLita 
+        mySQLita.teacherWithPlace.__schedule[0].occupyHour(1,"Math")
+        console.log(mySQLita.teacherWithPlace.__schedule[0])
+    </script>
+</body>
+</html>

@@ -178,7 +178,6 @@ class ListDouble {
     pop = (item, current = this.stock) => {
 
        if (this.stock.valor === item){
-            console.log("stock", this.stock)
             this.stock.nextValor.beforeValor = null;
             return this.stock = this.stock.nextValor;
         }
@@ -239,6 +238,3 @@ lista.pushLast(13)
 
 lista.pop(11)
 len = lista.getSize();
-console.log(lista.searchItem(11))
-console.log(lista.getAllItems())
-console.log(len)
