@@ -19,14 +19,6 @@ const removeFromStart = (stackArray) => {
     stackArray.splice(0, 1);
 };
 
-console.log(stack);
-addToEnd(stack, 21);
-console.log(stack);
-removeFromEnd(stack);
-console.log(stack);
-removeFromStart(stack);
-console.log(stack);
-
 class Node {
     constructor(val, next){
         this.val = val;
@@ -52,12 +44,6 @@ class List{
         }
     }
 }
-
-let list = new List();
-list.add(1);
-list.add(2);
-list.remove();
-console.log(list);
 
 class NodeWithTwoPointers{
     constructor (val, next, prev){
@@ -90,10 +76,3 @@ class DoubleList{
         } 
     }
 }
-
-
-let doubleList = new DoubleList();
-doubleList.add(1);
-doubleList.add(2);
-doubleList.add(3);
-console.log(doubleList);
