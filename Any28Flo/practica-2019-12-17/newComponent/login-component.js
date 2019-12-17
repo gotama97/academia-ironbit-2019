@@ -20,14 +20,15 @@ class LoginComponent extends LitElement{
     render(){
         return html`
         <paper-card image="${this.img}" >
-        <div class="card-content">
-            <vaadin-text-field label="Username">Elena Torres</vaadin-text-field>
-            <vaadin-text-field placeholder="*****"></vaadin-text-field>
+            <div class="card-content">
+                <vaadin-text-field label="Username"  placeholder="Elena Torres"></vaadin-text-field>
+                <br>
+                <vaadin-text-field placeholder="*****"></vaadin-text-field>
 
-        </div>
-        <div class="card-actions">
-        <vaadin-button theme="secondary">Ingresar</vaadin-button>
-        </div>
+            </div>
+            <div class="card-actions">
+                <vaadin-button theme="secondary">Ingresar</vaadin-button>
+            </div>
         </paper-card>
         `
     }
