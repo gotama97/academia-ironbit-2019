@@ -19,21 +19,13 @@ export class IbLogin extends LitElement {
     static get styles() {
         return css`
         paper-card {
-            --paper-card-header-image : {
-                width: 100px;
-                height: 10px;
-            };
 
             display: inline-flex;
             flex-flow: column;
             align-items: center;
             justify-content: center;
         }
-        img {
-            width: 100px;
-            heigth: 100px;
-            margin: 0 auto;
-        }
+        
         #container {
             width: 100vw;
             height: 100vh;
@@ -57,8 +49,7 @@ export class IbLogin extends LitElement {
     render() {
         return html`
         <div id="container">
-            <paper-card>
-                <img src="assets/LogoIB.png" alt="IB Logo">
+            <paper-card image="${this.image}">
                 <vaadin-text-field placeholder ="User Name"></vaadin-text-field>
                 <vaadin-text-field placeholder ="Password"></vaadin-text-field>
                 <vaadin-button>Ingresar</vaadin-button>
