@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "firstName": "Analin",
+      "lastName": "Flores",
+      "userName": "Any",
+      "password": "afdsfas"
+    },
+    {
+      "firstName": "Antonio",
+      "lastName": "Gonza",
+      "userName": "Antonio",
+      "password": "5599a"
+    },
+    {
+      "id": 1,
+      "firstName": {
+        "0": {},
+        "length": 1
+      },
+      "lastName": "Glz",
+      "userName": "afsdfsad",
+      "password": "dfadfsadfss"
+    }
+  ]
+}
