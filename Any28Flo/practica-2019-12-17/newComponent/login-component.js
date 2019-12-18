@@ -1,6 +1,8 @@
 import {LitElement, html, css} from 'lit-element';
 
 import '@vaadin/vaadin-text-field/vaadin-text-field';
+import '@vaadin/vaadin-text-field/vaadin-password-field.js';
+
 import '@vaadin/vaadin-button/vaadin-button.js';
 import '@polymer/paper-card/paper-card.js';
 class LoginComponent extends LitElement{
@@ -37,7 +39,7 @@ class LoginComponent extends LitElement{
             <div class="card-content">
                 <vaadin-text-field   placeholder="Elena Torres"></vaadin-text-field>
                 <br>
-                <vaadin-text-field placeholder="*****"></vaadin-text-field>
+                <vaadin-password-field label="Password"></vaadin-password-field>
 
             </div>
             <div class="card-actions">
