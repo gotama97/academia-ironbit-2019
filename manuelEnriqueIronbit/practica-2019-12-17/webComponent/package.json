@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@vaadin/vaadin-ordered-layout": "^1.1.0",
     "@vaadin/vaadin-text-field": "^2.5.3",
     "lit-element": "^2.2.1"
   },

@@ -1,6 +1,8 @@
 import {LitElement, html, css} from "lit-element";
 
 import '@vaadin/vaadin-text-field/vaadin-text-field';
+import '@vaadin/vaadin-ordered-layout';
+
 
 class MyElement extends LitElement {
     static get properties() {
@@ -19,8 +21,21 @@ class MyElement extends LitElement {
                 color: blue;
             }
             
-            table {
+            vaadin-vertical-layout{
+                display: block;
+            }
+            vaadin-horizontal-layout.multipliers div{
+                width: 20px;
                 border: 1px solid black;
+                padding: 10px;
+                background: #e3e3e3;
+            }
+
+            vaadin-horizontal-layout.result div{
+                width: 20px;
+                border: 1px solid black;
+                padding: 10px;
+                background: #77bf75;
             }
         `;
     }
@@ -47,17 +62,12 @@ class MyElement extends LitElement {
             
             <vaadin-text-field placeholder="a" @input="${this.aChanged}"></vaadin-text-field>
             <vaadin-text-field placeholder="b" @input="${this.bChanged}"></vaadin-text-field>
-            
-            <table>
-            <thead>
-            ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => html`<th>${number}</th>`)}
-</thead>
-            <tbody>
-            <tr>
-            ${this.table.map(number => html`<td>${number}</td>`)}
-</tr>
-</tbody>
-</table>
+            <vaadin-horizontal-layout class="multipliers">
+                ${[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(number => html`<div>${number}</div>`)}
+            </vaadin-horizontal-layout>
+            <vaadin-horizontal-layout class="result">
+                ${this.table.map(number => html`<div>${number}</div>`)}
+            </vaadin-horizontal-layout>
         `;
     }
 
