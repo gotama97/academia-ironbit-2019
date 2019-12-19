@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module"  async="async">
+        import '../i18n-selector.js';
+    </script>
+    <title>I18nSelector</title>
+</head>
+<body>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+                width: 30%;
+                padding: 10px;
+                color: #757575;
+                border-radius: 5px;
+                background-color: #fff;
+                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+            }
+    </style>
+    <script>
+        const language = {
+                es:{
+                    nameLang: 'Español',
+                    title:'Los Vengadores',
+                    description:'Después de los eventos devastadores de "Avengers: Infinity War", el universo está en ruinas debido a las acciones de Thanos, el Titán Loco. Con la ayuda de los aliados que quedaron, los Vengadores deberán reunirse una vez más para intentar deshacer sus acciones y restaurar el orden en el universo de una vez por todas, sin importar cuáles son las consecuencias... Cuarta y última entrega de la saga "Vengadores".'
+                },
+                en:{
+                    nameLang: 'English',
+                    title:'Avengers',
+                    description:'After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right. Along the way, the Avengers realize that sacrifices must be made as they prepare for the ultimate final showdown with Thanos, which will result in the heroes fighting the biggest battle they have ever faced.'
+                },
+                pr:{
+                    nameLang: 'Português',
+                    title:'os Vingadores',
+                    description:'Depois que metade de toda a vida é arrancada por Thanos, os Vingadores ficam espalhados e divididos. Agora, com uma maneira de reverter o dano, os Vingadores e seus aliados devem se reunir mais uma vez e aprender a deixar as diferenças de lado, a fim de trabalhar juntos e acertar as coisas. Ao longo do caminho, os Vingadores percebem que sacrifícios devem ser feitos enquanto se preparam para o confronto final final com Thanos, o que resultará nos heróis travando a maior batalha que já enfrentaram.'
+                },
+                fr:{
+                    nameLang: 'Frances',
+                    title: 'les Vengeurs',
+                    description: `Après que la moitié de toute la vie ait été emportée par Thanos, les Avengers sont dispersés et divisés. Désormais avec un moyen d'inverser les dégâts, les Avengers et leurs alliés doivent se réunir une fois de plus et apprendre à mettre les différences de côté afin de travailler ensemble et de remettre les choses en ordre. En cours de route, les Avengers se rendent compte que des sacrifices doivent être faits alors qu'ils se préparent à l'ultime épreuve de force finale avec Thanos, qui entraînera les héros dans la plus grande bataille à laquelle ils aient jamais été confrontés.`
+                }
+            };
+    </script>
+    <div class="card">
+        <i18n-selector .lang="${language}"></i18n-selector>
+        <h2 id="title">Los avengers</h2>
+        <p id="description">
+            Después de los eventos devastadores de 'Avengers: Infinity War', el universo está en ruinas debido a las acciones de Thanos, el Titán Loco. Con la ayuda de los aliados que quedaron, los Vengadores deberán reunirse una vez más para intentar deshacer sus acciones y restaurar el orden en el universo de una vez por todas, sin importar cuáles son las consecuencias... Cuarta y última entrega de la saga "Vengadores".
+        </p>
+    </div>
+    <script  async="async">
+            document.querySelector('i18n-selector').addEventListener('i18nEvent', event =>{ 
+            const dictionary = event.detail;
+            document.querySelector('#title').innerHTML = dictionary.get('title')
+            document.querySelector('#description').innerHTML = dictionary.get('description')
+        });
+    </script>
+</body>
+</html>
