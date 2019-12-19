@@ -1,0 +1,18 @@
+{
+  "name": "i18n-selector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vaadin/vaadin-item": "^2.1.1",
+    "@vaadin/vaadin-list-box": "^1.2.0",
+    "@vaadin/vaadin-select": "^2.1.6",
+    "lit-element": "^2.2.1"
+  }
+}
