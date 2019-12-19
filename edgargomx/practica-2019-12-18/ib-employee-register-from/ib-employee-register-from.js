@@ -16,10 +16,6 @@ class IbEmployeeRegisterFrom extends LitElement {
     return style;
   }
 
-  constructor() {
-    super();
-  }
-
   render() {
     return html`
       <div class="content-col-center">
