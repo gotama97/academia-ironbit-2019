@@ -11,4 +11,11 @@ export default css`
 *, *:before, *:after {
   box-sizing: inherit;
   font-family: inherit; }
+
+#main-paper-card {
+  display: flex;
+  flex-flow: row; }
+
+.secondary-card {
+  margin: 15px; }
 `;
