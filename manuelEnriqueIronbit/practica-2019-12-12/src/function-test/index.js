@@ -28,7 +28,6 @@ const validateColumn = matrix => {
     for (let element of matrix){
       colsArray.push(element[index])
     }
-    //console.log(colsArray);
     if(validateSet(new Set(colsArray)) === false){
       return false
     } 
