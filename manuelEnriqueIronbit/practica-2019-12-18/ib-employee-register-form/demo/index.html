@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../ib-employee-register-form.js';
+        import '@polymer/paper-toast/paper-toast.js';
+    </script>
+    <title>IbEmployeeRegisterForm</title>
+</head>
+<body>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <div class="card">
+        <ib-employee-register-form></ib-employee-register-form>
+        <paper-toast id="toast"></paper-toast>
+    </div>
+    <script>
+        document.querySelector('ib-employee-register-form').addEventListener('employeeRegisterRequest', event => {
+          const toast = document.querySelector('#toast');
+          toast.text = JSON.stringify(event.detail);
+          toast.open();
+        });
+    </script>
+</body>
+</html>
