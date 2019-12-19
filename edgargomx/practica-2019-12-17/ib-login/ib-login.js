@@ -30,6 +30,13 @@ export class IbLogin extends LitElement {
                 justify-content: center;
                 align-items: center;
             }
+
+            .content {
+                padding: 80px;
+            }
+             img {
+                 margin-bottom: 50px;
+             }
         `;
     }
 
@@ -46,7 +53,7 @@ export class IbLogin extends LitElement {
                         <vaadin-password-field @input="${ this.passChange }" placeholder="******"></vaadin-password-field>
                     </div>
                     <div class="card-actions">
-                        <vaadin-button theme="primary">Ingresar</vaadin-button>
+                        <vaadin-button theme="primary" >Ingresar</vaadin-button>
                     </div>
                 </paper-card>
             </div>
