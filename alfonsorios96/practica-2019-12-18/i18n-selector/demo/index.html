@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../i18n-selector.js';
+        import '@polymer/paper-toast';
+    </script>
+    <title>I18nSelector</title>
+</head>
+<body>
+    <h2 id="title"></h2>
+    <i18n-selector></i18n-selector>
+    <paper-toast id="toast"></paper-toast>
+    <script>
+        const i18n = document.querySelector('i18n-selector');
+        const toast = document.querySelector('#toast');
+
+        i18n.addEventListener('lang-selected', event => {
+            toast.text = JSON.stringify([...event.detail]);
+            toast.open();
+            if(event.detail.has('title')) {
+                document.querySelector(`#title`).innerText = event.detail.get('title');
+            }
+        });
+
+        i18n.addEventListener('language-not-found', () => {
+            toast.text = 'No existe el idioma';
+            toast.open();
+        });
+
+        i18n.addEventListener('i18n-selector-ready', () => {
+            toast.text = 'Componente esta listo';
+            toast.open();
+        });
+
+        ['es', 'en', 'fr']
+            .reduce(async (acc, lang) => {
+                acc = await acc;
+                acc[lang] = await (await fetch(`./locales/${lang}.json`)).json();
+                return acc;
+            }, {})
+            .then(data => {
+                i18n.data = data;
+            });
+    </script>
+</body>
+</html>
