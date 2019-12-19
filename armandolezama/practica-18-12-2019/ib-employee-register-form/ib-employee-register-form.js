@@ -5,34 +5,31 @@ import '@vaadin/vaadin-select/vaadin-select';
 import '@vaadin/vaadin-date-picker/vaadin-date-picker';
 import '@vaadin/vaadin-button/vaadin-button';
 import '@polymer/paper-card/paper-card';
+import '@vaadin/vaadin-dialog/vaadin-dialog.js';
 
 
 class IbEmployeeRegisterForm extends LitElement {
-  static get properties() {
-    return {
-      employeeRegister: { type: Object},
-      empolyeeNumber: {type: String},
-      name: {type: String},
-      lastName: {type: String},
-      mothersLastName: {type: String},
-      dateOfAdmission: {type: Date},
-      billingCompany: {type: String},
-      bussinesName: {type: String},
-      scheme: {type: String},
-      status: {type: String}
-    };
-
-  }
 
   static get styles() {
     return style;
-  }
+  };
 
   _getNode(query){
-    return this.shadowRoot.querySelector(query)
+    return this.shadowRoot.querySelector(query);
+  };
+
+  connectedCallback(){
+    super.connectedCallback();
+    console.log('yo soy conn')
+  }
+
+  firstUpdated(changedProperties) {
+    this.open();
+    console.log('Yo soy first')
   }
 
   saveData(){
+    this.close();
     this.dispatchEvent(new CustomEvent('employee-register-request', {
       detail: {
         employeeRegister: {
@@ -49,46 +46,61 @@ class IbEmployeeRegisterForm extends LitElement {
     }))
   }
 
+  open(){
+    const dialog = this.shadowRoot.querySelector('vaadin-dialog')
+    dialog.opened = true;
+  }
+
+  close(){
+    const dialog = this.shadowRoot.querySelector('vaadin-dialog')
+    dialog.opened = false;
+  }
+
+
 
   render() {
     return html`
-      <paper-card>
-        <section>
-          <div>
-            <h3>Modificar empleado</h3>
-          </div>
-          <div>
-            <p>Número de empleado</p><vaadin-text-field id="employee-number"></vaadin-text-field>
-          </div>
-          <div>
-            <p>Nombre (s)</p><vaadin-text-field id="name"></vaadin-text-field>
-          </div>
-          <div>
-            <p>Apellido paterno</p><vaadin-text-field id="last-name"></vaadin-text-field>
-          </div>
-          <div>
-            <p>Apellido materno</p><vaadin-text-field id="mothers-last-name"></vaadin-text-field>
-          </div>
-          <div>
-            <p>Fecha de ingreso</p><vaadin-date-picker id="date-of-admission"></vaadin-date-picker>
-          </div>
-          <div>
-            <p>Empresa facturadora</p><vaadin-select id="billing-company"></vaadin-select>
-          </div>
-          <div>
-            <p>Razón social</p><vaadin-select id="busine-name"></vaadin-select>
-          </div>
-          <div>
-            <p>Esquema</p><vaadin-select id="scheme"></vaadin-select>
-          </div>
-          <div>
-            <p>Estatus</p><vaadin-select id="status"></vaadin-select>
-          </div>
-        </section>
-        <section>
-          <vaadin-button @click="${this.saveData}">Guardar</vaadin-button>
-        </section>
-      </paper-card>
+      <vaadin-dialog no-close-on-esc no-close-on-outside-click>
+      <template>
+        <paper-card>
+          <section>
+            <div>
+              <h3>Modificar empleado</h3>
+            </div>
+            <div>
+              <p>Número de empleado</p><vaadin-text-field id="employee-number"></vaadin-text-field>
+            </div>
+            <div>
+              <p>Nombre (s)</p><vaadin-text-field id="name"></vaadin-text-field>
+            </div>
+            <div>
+              <p>Apellido paterno</p><vaadin-text-field id="last-name"></vaadin-text-field>
+            </div>
+            <div>
+              <p>Apellido materno</p><vaadin-text-field id="mothers-last-name"></vaadin-text-field>
+            </div>
+            <div>
+              <p>Fecha de ingreso</p><vaadin-date-picker id="date-of-admission"></vaadin-date-picker>
+            </div>
+            <div>
+              <p>Empresa facturadora</p><vaadin-select id="billing-company"></vaadin-select>
+            </div>
+            <div>
+              <p>Razón social</p><vaadin-select id="busine-name"></vaadin-select>
+            </div>
+            <div>
+              <p>Esquema</p><vaadin-select id="scheme"></vaadin-select>
+            </div>
+            <div>
+              <p>Estatus</p><vaadin-select id="status"></vaadin-select>
+            </div>
+          </section>
+          <section>
+            <vaadin-button @click="${this.saveData}">Guardar</vaadin-button>
+          </section>
+        </paper-card>
+      </template>      
+      </vaadin-dialog>
       `;
     }
 }
