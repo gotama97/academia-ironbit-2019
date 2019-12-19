@@ -25,6 +25,7 @@ class IbLogin extends LitElement{
             flex-direction:column;
             justify-content:center;
             align-items:center;
+            margin :10px;
         }
         `
     }

@@ -1,4 +1,4 @@
-let url=   "http://localhost:3000/movie";
+const url=   "http://localhost:3000/movie";
 
 let getM =async () => {
 return await fetch(url)
