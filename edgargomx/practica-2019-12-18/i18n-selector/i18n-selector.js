@@ -11,44 +11,27 @@ class I18nSelector extends LitElement {
   constructor() {
     super();
     this.languages = new Map(Object.entries(language));
-    console.log('constructor', this.languages)
   }
 
-  async render() {
-    /*let langs = [];
-    for (const lang in language) {
-      if (language.hasOwnProperty(lang)) {
-        langs = [...langs, html`<vaadin-item value="${ lang }">${ language[lang].nameLang }</vaadin-item>`];
-      }
-    }*/
-    const arrayLangs = Array.from(this.languages);
-    console.log(arrayLangs);
+   render() {
     return html`
-        <h2>i18n-selector</h2>
         <div class="container-col-center">
-            <label>Lenguaje: </label>
-            <vaadin-select  id="language" @change="${ this.changeLanguage }">
+            <legend>Lenguaje: </legend>
+            <vaadin-select  id="language" @change="${ this.changeLanguage }" placeholder="Selecciona Idioma">
               <template>
                 <vaadin-list-box>
-                  ${ arrayLangs.map((lang, index) => html`<vaadin-item value="${ index }">${ lang.nameLang }</vaadin-item>`) }
+                  ${ Array.from([...this.languages]).map((lang) => html`<vaadin-item value="${ lang[0] }">${ lang[1].nameLang }</vaadin-item>`) }
                 </vaadin-list-box>
               </template>
             </vaadin-select>
         </div>
-
       `;
   }
 
- /* async transformToMap(){
-    console.log("to map")
-    this.languages = await new Map(Object.entries(language))
-  }*/
-
   changeLanguage(event) {
-    console.log(language)
-    const languageSelected = event.target.value
-    const langugeMap = new Map(Object.entries(language[ languageSelected ]));
-    this.dispatchEvent(new CustomEvent('i18nEvent', { detail: langugeMap }))
+    const languageSelected = event.target.value;
+    const languageMap =  new Map(Object.entries(this.languages.get( languageSelected )));
+    this.dispatchEvent(new CustomEvent('i18nEvent', { detail: languageMap }))
   }
 }
 
