@@ -1,0 +1,17 @@
+{
+  "name": "first-component",
+  "version": "1.0.0",
+  "description": "first component with lit element",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ego 2019",
+  "license": "ISC",
+  "dependencies": {
+    "@polymer/paper-card": "^3.0.1",
+    "@vaadin/vaadin-button": "^2.2.1",
+    "@vaadin/vaadin-text-field": "^2.5.3",
+    "lit-element": "^2.2.1"
+  }
+}
