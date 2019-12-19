@@ -29,14 +29,11 @@ export class I18NSelector extends LitElement {
     }
 
     _loadData(){
-        async function setLAnguageFromUrl(){
+        (async () => {
             const response = await fetch(`../locals/languages.json`);
             const data = await response.json()
             return data;
-            }
-
-            setLAnguageFromUrl()
-            .then(data => this.data = data); 
+            })().then(data => this.data = data); 
     }
 
     render() {
