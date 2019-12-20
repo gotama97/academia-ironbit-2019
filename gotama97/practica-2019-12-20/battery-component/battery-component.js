@@ -27,6 +27,7 @@ class BatteryComponent extends LitElement {
 
     <button type="button" @click="${this.charge}">CHARGE</button>
     <button type="button" @click="${this.disconnect}">DISCONNECT</button>
+    <button type="button" @click="${this.discharge}">DISCHARGE</button>
 
     </div>
 
@@ -36,6 +37,20 @@ class BatteryComponent extends LitElement {
       </div>
     </div>
       `;
+    }
+    discharge(){
+      this.state = setInterval(() => {
+        if(this.level<=100&&this.level>-1){
+          this.level-=2;
+            if(this.level<21&&this.level>0){
+              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FF3333";
+            }else if(this.level>21&&this.level<61){
+              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FCD116";
+            }else{
+              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#66CD00";
+            }
+        }
+      }, 1000);
     }
 charge(){
   this.state = setInterval(() => {
