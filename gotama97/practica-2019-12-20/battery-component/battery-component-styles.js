@@ -40,20 +40,16 @@ export default css`
 .battery .battery-level{
   background-color: #666666;
   height: 100%;
-}
-
-.battery .battery-level.high{
-  background-color: #66CD00;
-}
-
-.battery .battery-level.medium{
-  background-color: #FCD116;
-}
-
-.battery .battery-level.low{
-  background-color: #FF3333;
-}
-
-.battery .battery-level{
   text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.change{
+  justify-content: space-between;
+  display: flex;
 }`;

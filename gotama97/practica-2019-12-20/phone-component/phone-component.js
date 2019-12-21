@@ -7,6 +7,7 @@ import '@catsys/battery-component'
 class PhoneComponent extends LitElement {
   static get properties() {
     return {
+      cover:String
     };
   }
 
@@ -16,17 +17,28 @@ class PhoneComponent extends LitElement {
 
   constructor() {
     super();
+    this.cover='./../cover.jpg'
   }
 
   render() {
     return html`
-<div>
-<battery-component></battery-component>
-</div>
 
-<div>
-<player-component></player-component>
-</div>
+<article class="card">
+  <header class="card__thumb">
+  
+    <img src="${this.cover}"/>
+  </header>
+  
+  <div class="card__body">
+    <h2 class="card__title"><a href="#">We're on a highway to hell!</a></h2>
+    <div class="card__subtitle"><player-component></player-component></div>
+    <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit cumque non commodi, modi recusandae cupiditate ipsa ab soluta. Illum, dolore.</p>
+  </div>
+  
+  <footer class="card__footer">
+  <battery-component></battery-component>
+   </footer>
+</article>
 `;
     }
 }

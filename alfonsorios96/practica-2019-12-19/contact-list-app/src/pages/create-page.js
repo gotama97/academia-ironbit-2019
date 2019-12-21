@@ -1,13 +1,10 @@
 import {html, css} from 'lit-element';
 import {PageDM} from '../utils/page-dm.js';
-import '@catsys/contact-form';
+import '@catsys/contact-card';
 
 class CreatePage extends PageDM {
   static get styles() {
       return css`
-        .container {
-          
-        }
       `;
     }
     render() {

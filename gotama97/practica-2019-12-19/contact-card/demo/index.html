@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../contact-card.js';
+    </script>
+    <title>ContactCard</title>
+</head>
+<body>
+        <contact-card></contact-card>
+        <script>
+            const node = document.querySelector('conatct-card');
+            node.contact={
+                name:'luis',
+                lastName:'flores',
+                phone:'55570867494',
+                gender:'male',
+                address:'Buffon 46',
+                email:'lui.flores@ironbit.com.mx',
+                nss:'64554665654',
+                rfc:'FOAL201197T09',
+                bloodType:'o+',
+                curp:'FOAL201197HDFLRS09',
+                image:'https://i.pinimg.com/736x/a0/65/21/a065214ea025c4693878d8df6d38a4b0--mac-musicians.jpg',
+                skills:['LitElement']
+            }       
+            </script>
+</body>
+</html>

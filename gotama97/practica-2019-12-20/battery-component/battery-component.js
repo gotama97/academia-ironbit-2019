@@ -23,38 +23,39 @@ class BatteryComponent extends LitElement {
 
   render() {
     return html`
-    <div id="change">
+   <div class="container">
+   <div class="change">
 
-    <button type="button" @click="${this.charge}">CHARGE</button>
-    <button type="button" @click="${this.disconnect}">DISCONNECT</button>
-    <button type="button" @click="${this.discharge}">DISCHARGE</button>
+<button type="button" @click="${this.charge}">CHARGE</button>
+<button type="button" @click="${this.disconnect}">DISCONNECT</button>
+<button type="button" @click="${this.discharge}">DISCHARGE</button>
 
-    </div>
+</div>
 
-    <div class="battery">
-      <div id="battery-level" class="battery-level">
-        ${this.level}%
-      </div>
-    </div>
+<div class="battery">
+  <div id="battery-level" class="battery-level">
+    ${this.level}%
+  </div>
+</div></div>
       `;
     }
     discharge(){
       this.state = setInterval(() => {
-        if(this.level<=100&&this.level>-1){
+        if(this.level>1&&this.level<100){
           this.level-=2;
-            if(this.level<21&&this.level>0){
-              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FF3333";
-            }else if(this.level>21&&this.level<61){
-              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FCD116";
-            }else{
-              this.shadowRoot.getElementById("battery-level").style.backgroundColor="#66CD00";
-            }
+          if(this.level<21&&this.level>0||this.level===0){
+            this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FF3333";
+          }else if(this.level>21&&this.level<61){
+            this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FCD116";
+          }else {
+            this.shadowRoot.getElementById("battery-level").style.backgroundColor="#66CD00";
+          }
         }
       }, 1000);
     }
 charge(){
   this.state = setInterval(() => {
-    if(this.level<=100&&this.level>-1){
+    if(this.level<99&&this.level>=0){
       this.level+=2;
         if(this.level<21&&this.level>0){
           this.shadowRoot.getElementById("battery-level").style.backgroundColor="#FF3333";
